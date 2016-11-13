@@ -49,9 +49,7 @@
 	<div class="top-menu">
 		<table>
 			<tr>
-				<td><button class="menu-button" type="button" name="addproject" onClick="location.href='addproject.jsp'">add project...</button></td>
-				<td><button class="menu-button" type="button" name="searchproject" onClick="location.href='risklist.jsp'">search project</button></td>
-				<td><button class="menu-button" type="button" name="deleteproject" onClick="location.href='delproject.jsp'">delete project</button></td>
+				<td><button class="menu-button" type="button" name="addrisk" onClick="location.href='addrisk.jsp'">add risk </button></td>
 			</tr>
 		</table>
 	</div>

@@ -17,8 +17,14 @@
 			<td width="20%">
 				<p>Risk ID: </p>
 			</td>
-			<td>
+			<td width="20%">
 				<p><%out.println("risk id"); %></p>
+			</td>
+			<td width="20%">
+				<button type="button" name="updaterisk" value="Update" onClick="location.href='updaterisk.jsp'">Update</button>
+			</td>
+			<td width="20%">
+				<button type="button" name="checkupdaterisk" value="CheckUpdate" onClick="location.href='riskupdatehistory.jsp'">Update Log</button>
 			</td>
 		</tr>
 		<tr>

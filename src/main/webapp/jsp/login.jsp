@@ -35,9 +35,8 @@
 				<input type="password" name="password">
 				<br>
 				<input type="submit" name="login" value="login"><input type="submit" name="register" value="register">
-				
-		</form>
-	</div></td>
+				</form></div>
+			</td>
 		</tr>
 	</table>
 	

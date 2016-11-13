@@ -5,8 +5,18 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+	table.fixed-table{
+		padding:0px,10px,0px,10px;
+	}
+</style>
 </head>
 <body>
-
+<table class="fixed-table">
+	<tr>
+		<td><%out.println(" yyyy-mm-dd "); %></td>
+		<td><%out.println(" userid  "); %></td>
+	</tr>
+</table>
 </body>
 </html>
