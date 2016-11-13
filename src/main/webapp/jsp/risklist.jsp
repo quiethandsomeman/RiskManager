@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%! int risknum=0; %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -24,10 +25,25 @@
 		margin-top:0.1cm;
 		margin-bottom:0.1cm;
 	}
+	button.addriskbutton{
+		margin-left:8cm;
+	}
+	#project-info{
+		margin-left:0.25cm;
+		margin-top:0.25cm;
+	}
+	#risk-title{
+		margin-left:0.25cm;
+		margin-top:0.25cm;
+	}
+	#risk-list{
+		margin-left:0.25cm;
+		margin-top:0.25cm;
+	}
 </style>
 </head>
 <body>
-<div class="logout">
+	<div class="logout">
 		<p class="to-right">wlecome,<% out.print("the id "); %>!</p>
 	</div>
 	<div class="top-menu">
@@ -38,6 +54,31 @@
 				<td><button class="menu-button" type="button" name="deleteproject" onClick="location.href='delproject.jsp'">delete project</button></td>
 			</tr>
 		</table>
+	</div>
+	<div id="project-info">
+		<table>
+			<tr>
+				<td><font size="4">Project <%out.println("project id/project name");%></font></td>
+			</tr>
+			<tr>
+				<td><p>created by <%out.println("userid");%>, </p></td>
+				<td><p>risk number: <%out.println("num"); %></p></td>
+			</tr>
+		</table>
+	</div>
+	<div id="risk-title">
+		<table>
+			<tr>
+				<td><font size="3">Risk List</font></td>
+				<td><button class="addriskbutton" type="button" onCLick="location.href=addRisk.jsp">Add Risk</button></td>
+			</tr>
+		</table>
+	</div>
+	<div id="risk-list">
+		<%for(risknum=5;risknum>0;risknum++){ %>
+		<jsp:include page="risklistitem.jsp" flush="true" />
+			<br />
+		<%}%>
 	</div>
 </body>
 </html>
