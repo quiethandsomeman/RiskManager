@@ -11,15 +11,16 @@ import riskmanager.jdbc.Open;
 
 
 public class ShowProject {
-	public static ArrayList<Project> getProList() throws SQLException{
+	public static ArrayList<Project> getProList(String username) throws SQLException{
 		ArrayList<Project> prolist=new ArrayList<Project>();
 		Connection conn=Open.open();
-		String sql="select*from project";
+		String sql="select*from project where username=?";
 		if(conn!=null){
 			try {
 				Statement stmt=conn.createStatement();
 				stmt.execute("use riskmanager;");
 				PreparedStatement ps=conn.prepareStatement(sql);
+				ps.setString(1,username);
 				ResultSet rs=ps.executeQuery();
 				while(rs.next()){
 					Project pro=new Project(rs.getString("username"),rs.getInt("projectid"),rs.getString("proname"),rs.getString("proinfo"));
@@ -33,8 +34,5 @@ public class ShowProject {
 			}
 		}
 		return prolist;
-	}
-	public static void main(String []args) throws SQLException{
-		System.out.print(getProList().get(0).getProname());
 	}
 }
