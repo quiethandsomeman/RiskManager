@@ -28,7 +28,7 @@
 </head>
 <body>
 	<div class="logout">
-		<p class="to-right">wlecome,<% out.print("the id "); %>!</p>
+		<p class="to-right">welcome,<% out.print("the id "); %>!</p>
 	</div>
 	<div class="top-menu">
 		<table>

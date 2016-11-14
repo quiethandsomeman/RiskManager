@@ -5,7 +5,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>登陆中</title>
+    <title>登录中</title>
 </head>
 <body>
 <%
