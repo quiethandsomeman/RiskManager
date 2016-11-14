@@ -15,6 +15,8 @@ public class Register {
 		if(conn!=null){
 			try {
 				Statement stmt=conn.createStatement();
+				sql="use riskmanager;";
+				stmt.execute(sql);
 				sql="select * from user where uname='"+username+"';";
 				if(!stmt.execute(sql)){
 					sql="insert into user values('"+username+"','"+password+"');";

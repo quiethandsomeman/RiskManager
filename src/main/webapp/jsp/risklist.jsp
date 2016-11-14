@@ -62,7 +62,8 @@
 		<table>
 			<tr>
 				<td><font size="3">Risk List</font></td>
-				<td><button class="addriskbutton" type="button" onCLick="location.href='addRisk.jsp?pid=s'">Add Risk</button></td>
+				<td><button class="addriskbutton" type="button" onCLick="location.href='/riskmanager/jsp/addRisk.jsp?pid=<%=s%>'">Add Risk</button></td>
+				
 			</tr>
 		</table>
 	</div>
@@ -93,8 +94,8 @@
 		</tr>
 
 		<tr>
-			<td><button type="button" name="check" onClick="location.href='riskupdatehistory.jsp?rid=<%=ars.get(risknum).getRiskid()%>&&pid=id'"> check </button></td>
-			<td><button type="button" name="check" onclick="location.href='updaterisk.jsp?rid=<%=ars.get(risknum).getRiskid()%>&&pid=id'"> update</button> </td>
+			<td><button type="button" name="check" onClick="location.href='/riskmanager/jsp/riskupdatehistory.jsp?rid=<%=ars.get(risknum).getRiskid()%>&&pid=id'"> check </button></td>
+			<td><button type="button" name="check" onclick="location.href='/riskmanager/jsp/updaterisk.jsp?rid=<%=ars.get(risknum).getRiskid()%>&&pid=id'"> update</button> </td>
 		</tr>
 		<br>
 		<%}%>

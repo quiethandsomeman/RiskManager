@@ -15,12 +15,13 @@
     String usrname=(String)request.getSession().getAttribute("username");
     String name = request.getParameter("projectname");
     String des = request.getParameter("projectdescription");
+    out.println(name);
     Addproject ad=new Addproject();
     boolean re=ad.addProject(usrname,name,des);
     if(re==false){out.println("<script>alert('加入失败')</script>");
-        response.sendRedirect("addproject.jsp");}
+        response.sendRedirect("/riskmanager/jsp/addproject.jsp");}
     else{
-        response.sendRedirect("projectlist.jsp");
+        response.sendRedirect("/riskmanager/jsp/projectlist.jsp");
     }
 
 %>

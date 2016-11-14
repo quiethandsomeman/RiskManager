@@ -12,7 +12,7 @@
 </head>
 <body>
 	<div id="risk-table">
-		<form action="doaddrisk.jsp" method="post">
+		<form action="/riskmanager/jsp/doaddrisk.jsp" method="post">
 		<table class="fixedtable">
 		<tr>
 			<td width="20%">

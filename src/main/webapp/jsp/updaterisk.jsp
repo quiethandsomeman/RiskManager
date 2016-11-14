@@ -15,7 +15,7 @@ request.setAttribute("pid",pid);
 </head>
 <body>
 	<div id="risk-table">
-		<form action="doupdaterisk.jsp" method="post">
+		<form action="/riskmanager/jsp/doupdaterisk.jsp" method="post">
 		<table class="fixedtable">
 		<tr>
 			<td width="20%">

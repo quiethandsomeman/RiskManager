@@ -24,9 +24,9 @@
     Addtrack ad=new Addtrack();
     boolean re=ad.addTrack(proid,riskid,pro,lev,th1,des,usrname);
     if(re==false){out.println("<script>alert('修改失败')</script>");
-        response.sendRedirect("projectlist.jsp");}
+        response.sendRedirect("/riskmanager/jsp/projectlist.jsp");}
     else{
-        response.sendRedirect("projectlist.jsp");
+        response.sendRedirect("/riskmanager/jsp/projectlist.jsp");
     }
 
 %>

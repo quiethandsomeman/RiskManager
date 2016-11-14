@@ -29,12 +29,12 @@
 			</td>
 			<td>
 				<div id="login-item">
-				<form action="dologin.jsp" method="post">
+				<form action="/riskmanager/jsp/dologin.jsp" method="post">
 				<input type="text" name="name" value="user id or e-mail address:)">
 				<br>
 				<input type="password" name="password">
 				<br>
-				<input type="submit" name="login" value="login"><input type="button" name="register" value="register" onclick="location.href='/jsp/register.jsp'"/>
+				<input type="submit" name="login" value="login"><input type="button" name="register" value="register" onclick="location.href='/riskmanager/jsp/register.jsp'"/>
 				</form></div>
 			</td>
 		</tr>

@@ -13,6 +13,7 @@
     request.setCharacterEncoding("GB18030");
     String usrname=(String)request.getSession().getAttribute("username");
     String pid=(String)request.getAttribute("pid");
+    out.println("sss"+pid);
     int proid=Integer.parseInt(pid);
     String pro = request.getParameter("riskprobility");
     String des = request.getParameter("riskdescription");
@@ -22,9 +23,9 @@
     AddRisk ad=new AddRisk();
     boolean re=ad.addRisk(proid,usrname,"",pro,lev,th1,des);
     if(re==false){out.println("<script>alert('加入失败')</script>");
-        response.sendRedirect("projectlist.jsp");}
+        response.sendRedirect("/riskmanager/jsp/projectlist.jsp");}
     else{
-        response.sendRedirect("projectlist.jsp");
+        response.sendRedirect("/riskmanager/jsp/projectlist.jsp");
     }
 
 %>

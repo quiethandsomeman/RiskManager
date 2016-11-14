@@ -14,6 +14,8 @@ public class Login {
 		if(conn!=null){
 			try {
 				Statement stmt=conn.createStatement();
+				sql="use riskmanager;";
+				stmt.execute(sql);
 				sql="select * from user where uname='"+username+"'&password='"+password+"';";
 				res=stmt.execute(sql);
 			} catch (SQLException e) {

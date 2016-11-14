@@ -53,14 +53,14 @@
 				<td><% out.println(ap.get(pnum).getProinfo());%></td>
 			</tr>
 		    <tr>
-				<td><button type="button" name="check" onClick="location.href='risklist.jsp?id=<%=ap.get(pnum).getProjectid()%>'"> examine </button></td>
+				<td><button type="button" name="check" onClick="location.href='/riskmanager/jsp/risklist.jsp?id=<%=ap.get(pnum).getProjectid()%>'"> examine </button></td>
 			</tr>
 		<br>
 		<%}%>
 	</div>
      <div>
 		 <tr>
-			 <td><button type="button" name="add" onClick="location.href='addproject.jsp'"> addproject </button></td>
+			 <td><button type="button" name="add" onClick="location.href='/riskmanager/jsp/addproject.jsp'"> addproject </button></td>
 		 </tr>
 	 </div>
 </body>

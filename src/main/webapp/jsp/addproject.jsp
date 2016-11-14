@@ -8,6 +8,7 @@
 </head>
 <body>
 <div id="risk-table">
+     <form action="/riskmanager/jsp/doaddproject.jsp" method="post">
     <table class="fixedtable">
         <tr>
             <td width="20%">
@@ -23,12 +24,12 @@
                 <p>Project Name: </p>
             </td>
             <td>
-                <input type="text" name="projectname">
+                <input type="text" name="projectname" >
             </td>
         </tr>
         <tr>
             <td>
-                <form action="doaddproject.jsp" method="post">
+                
                 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
                 <input type="submit" name="saveproject" value=" Save ">
             </td>
