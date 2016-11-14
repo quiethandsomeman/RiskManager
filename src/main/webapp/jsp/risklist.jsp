@@ -1,11 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%! int risknum=0; %>
+<% String s=request.getParameter("id");
+    String usr=(String)request.getSession().getAttribute("username");
+%>
+<%@ page import="riskmanager.riskHandler.*"%>
+<%@ page import="java.util.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>风险列表</title>
 <style>
 	div.logout{
 		height:50px;
@@ -43,24 +48,13 @@
 </style>
 </head>
 <body>
-	<div class="logout">
-		<p class="to-right">wlecome,<% out.print("the id "); %>!</p>
-	</div>
-	<div class="top-menu">
-		<table>
-			<tr>
-				<td><button class="menu-button" type="button" name="addrisk" onClick="location.href='addrisk.jsp'">add risk </button></td>
-			</tr>
-		</table>
-	</div>
 	<div id="project-info">
 		<table>
 			<tr>
-				<td><font size="4">Project <%out.println("project id/project name");%></font></td>
+				<td><font size="4">Project <%out.println(s);%></font></td>
 			</tr>
 			<tr>
-				<td><p>created by <%out.println("userid");%>, </p></td>
-				<td><p>risk number: <%out.println("num"); %></p></td>
+				<td><p>created by <%out.println(usr);%>, </p></td>
 			</tr>
 		</table>
 	</div>
@@ -68,14 +62,41 @@
 		<table>
 			<tr>
 				<td><font size="3">Risk List</font></td>
-				<td><button class="addriskbutton" type="button" onCLick="location.href=addRisk.jsp">Add Risk</button></td>
+				<td><button class="addriskbutton" type="button" onCLick="location.href='addRisk.jsp?pid=s'">Add Risk</button></td>
 			</tr>
 		</table>
 	</div>
 	<div id="risk-list">
-		<%for(risknum=5;risknum>0;risknum++){ %>
-		<jsp:include page="risklistitem.jsp" flush="true" />
-			<br />
+		<%
+
+			int id=Integer.parseInt(s);
+			ShowRisk sr=new ShowRisk();
+			ArrayList<Risk> ars=sr.getRiskList(id);
+
+			for(risknum=0;risknum<ars.size();risknum++){
+
+
+
+		
+
+		%>
+		<tr>
+			<td width="30%"><%out.print(ars.get(risknum).getRiskid());%></td>
+			<td><% out.println(ars.get(risknum).getPossibility());%></td>
+		</tr>
+		<tr>
+			<td width="70%"><p><% out.print(ars.get(risknum).getValue()); %></p></td>
+			<td><% out.println(ars.get(risknum).getInfo());%></td>
+		</tr>
+		<tr>
+			<td width="70%"><p><% out.print(ars.get(risknum).getEffect()); %></p></td>
+		</tr>
+
+		<tr>
+			<td><button type="button" name="check" onClick="location.href='riskupdatehistory.jsp?rid=<%=ars.get(risknum).getRiskid()%>&&pid=id'"> check </button></td>
+			<td><button type="button" name="check" onclick="location.href='updaterisk.jsp?rid=<%=ars.get(risknum).getRiskid()%>&&pid=id'"> update</button> </td>
+		</tr>
+		<br>
 		<%}%>
 	</div>
 </body>

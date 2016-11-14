@@ -2,7 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ page import="riskmanager.projectHandler.*"%>
 <%@ page import="java.util.*"%>
-<%! int pnum; %>
+<%! int pnum;
+	 %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -27,9 +29,6 @@
 </style>
 </head>
 <body>
-	<div class="logout">
-		<p class="to-right">welcome,<% out.print("the id "); %>!</p>
-	</div>
 	<div class="top-menu">
 		<table>
 			<tr>
@@ -40,7 +39,8 @@
 	</div>
 	<div id="project-list">
 		<%  ShowProject sp=new ShowProject();
-			ArrayList<Project> ap=sp.getProList();
+			String s=(String)request.getSession().getAttribute("username");
+			ArrayList<Project> ap=sp.getProList(s);
 			for(pnum=0;pnum<=ap.size()-1;pnum++){
 
 		%>
@@ -53,10 +53,15 @@
 				<td><% out.println(ap.get(pnum).getProinfo());%></td>
 			</tr>
 		    <tr>
-				<td><button type="button" name="check" onClick="location.href='risklist.jsp'"> examine2 </button></td>
+				<td><button type="button" name="check" onClick="location.href='risklist.jsp?id=<%=ap.get(pnum).getProjectid()%>'"> examine </button></td>
 			</tr>
 		<br>
 		<%}%>
 	</div>
+     <div>
+		 <tr>
+			 <td><button type="button" name="add" onClick="location.href='addproject.jsp'"> addproject </button></td>
+		 </tr>
+	 </div>
 </body>
 </html>
