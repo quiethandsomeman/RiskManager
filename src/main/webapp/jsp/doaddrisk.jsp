@@ -18,8 +18,9 @@
     String des = request.getParameter("riskdescription");
     String lev=request.getParameter("impactlevel");
     String th=request.getParameter("threshold");
+    int th1=Integer.parseInt(th);
     AddRisk ad=new AddRisk();
-    boolean re=ad.addRisk(pid,name,des);
+    boolean re=ad.addRisk(proid,usrname,"",pro,lev,th1,des);
     if(re==false){out.println("<script>alert('加入失败')</script>");
         response.sendRedirect("projectlist.jsp");}
     else{

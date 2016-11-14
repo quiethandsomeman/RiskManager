@@ -20,8 +20,9 @@
     String des = request.getParameter("riskdescription");
     String lev=request.getParameter("impactlevel");
     String th=request.getParameter("threshold");
+    int th1=Integer.parseInt(th);
     Addtrack ad=new Addtrack();
-    boolean re=ad.addTrack(pid,name,des);
+    boolean re=ad.addTrack(proid,riskid,pro,lev,th1,des,usrname);
     if(re==false){out.println("<script>alert('修改失败')</script>");
         response.sendRedirect("projectlist.jsp");}
     else{

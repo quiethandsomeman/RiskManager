@@ -14,11 +14,12 @@
     String name = request.getParameter("name");
     String password = request.getParameter("password");
     Login lg=new Login();
+    boolean re=false;
     try{
-        boolean re=lg.login(name,password);
+        re=lg.login(name,password);
     }catch(SQLException se){}
 
-    if(re==false){out.println("<script>alert('失败')</script>");
+    if(!re){out.println("<script>alert('失败')</script>");
                        response.sendRedirect("login.jsp");}
     else{
         request.getSession().setAttribute("username",name);
