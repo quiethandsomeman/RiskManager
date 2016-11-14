@@ -34,7 +34,7 @@
 				<br>
 				<input type="password" name="password">
 				<br>
-				<input type="submit" name="login" value="login"><input type="button" name="register" value="register" onclick="window.location.href='register.jsp'"/>
+				<input type="submit" name="login" value="login"><input type="button" name="register" value="register" onclick="location.href='/jsp/register.jsp'"/>
 				</form></div>
 			</td>
 		</tr>

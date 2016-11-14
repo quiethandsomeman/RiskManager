@@ -16,10 +16,10 @@
     Register reg=new Register();
     boolean re=reg.register(name,password);
     if(re==false){out.println("<script>alert('用户名存在')</script>");
-        response.sendRedirect("register.jsp");}
+        response.sendRedirect("/jsp/register.jsp");}
     else{
         request.getSession().setAttribute("username",name);
-        response.sendRedirect("login.jsp");
+        response.sendRedirect("/jsp/login.jsp");
     }
 
 %>
