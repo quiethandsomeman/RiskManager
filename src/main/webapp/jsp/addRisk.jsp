@@ -45,6 +45,14 @@
 			</td>
 		</tr>
 		<tr>
+			<td width="20%">
+				<p>pid: </p>
+			</td>
+			<td>
+				<input type="text" name="pid" value="<%=pid%>">
+			</td>
+		</tr>
+		<tr>
 			<td>
 				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
 				<input type="submit" name="saverisk" value=" Save ">

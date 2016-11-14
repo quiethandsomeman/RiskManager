@@ -12,8 +12,9 @@
 <%
     request.setCharacterEncoding("GB18030");
     String usrname=(String)request.getSession().getAttribute("username");
-    String pid=(String)request.getAttribute("pid");
-    out.println("sss"+pid);
+    //String pid=(String)request.getAttribute("pid");
+    
+    String pid=request.getParameter("pid");
     int proid=Integer.parseInt(pid);
     String pro = request.getParameter("riskprobility");
     String des = request.getParameter("riskdescription");

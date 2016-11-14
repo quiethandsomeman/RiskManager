@@ -23,7 +23,7 @@ public class ShowRisk {
 				ps.setInt(1,proid);
 				ResultSet rs=ps.executeQuery();
 				while(rs.next()){
-					Risk risk=new Risk(rs.getInt("projectid"),rs.getInt("riskid"),rs.getString("rname"),rs.getString("possibility"),rs.getString("effect"),rs.getInt("value"),rs.getString("uploader"),rs.getString("tracker"),rs.getString("info"));
+					Risk risk=new Risk(rs.getInt("projectid"),rs.getInt("riskid"),rs.getString("rname"),rs.getString("possiblity"),rs.getString("effect"),rs.getInt("value"),rs.getString("uploader"),rs.getString("tracker"),rs.getString("info"));
 					risklist.add(risk);
 				}
 			} catch (SQLException e) {

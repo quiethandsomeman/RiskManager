@@ -13,7 +13,7 @@ public class AddRisk {
 	public static boolean addRisk(int projectid,String username,String rname,String possiblity,String effect,int value,String info) throws SQLException{
 		Connection conn=Open.open();
 		boolean res=false;
-		String sql="insert into project(projectid,rname,possibility,effect,value,uploader,tracker,info) values (?,?,?,?,?,?,?,?)";
+		String sql="insert into risk(projectid,rname,possiblity,effect,value,uploader,tracker,info) values (?,?,?,?,?,?,?,?)";
 		if(conn!=null){
 			try {
 				Statement stmt=conn.createStatement();
