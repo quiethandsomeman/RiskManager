@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="riskmanager.projectHandler.*"%>
+<%@ page import="java.util.*"%>
 <%! int pnum; %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -37,9 +39,23 @@
 		</table>
 	</div>
 	<div id="project-list">
-		<%for(pnum=5;pnum>0;pnum--){ %>
-			<jsp:include page="projectitem.jsp" flush="true" />
-			<br />
+		<%  ShowProject sp=new ShowProject();
+			ArrayList<Project> ap=sp.getProList();
+			for(pnum=0;pnum<=ap.size()-1;pnum++){
+
+		%>
+			<tr>
+				<td width="30%"><%out.print(ap.get(pnum).getProjectid());%></td>
+				<td><% out.println(ap.get(pnum).getProname());%></td>
+			</tr>
+			<tr>
+				<td width="70%"><p><% out.print(ap.get(pnum).getUsername()); %></p></td>
+				<td><% out.println(ap.get(pnum).getProinfo());%></td>
+			</tr>
+		    <tr>
+				<td><button type="button" name="check" onClick="location.href='risklist.jsp'"> examine2 </button></td>
+			</tr>
+		<br>
 		<%}%>
 	</div>
 </body>
