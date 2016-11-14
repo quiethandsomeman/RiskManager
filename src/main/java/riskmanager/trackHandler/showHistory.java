@@ -11,15 +11,17 @@ import riskmanager.jdbc.Open;
 
 
 public class showHistory {
-	public static ArrayList<History> getProList() throws SQLException{
+	public static ArrayList<History> getHistoryList(int proid,int rid) throws SQLException{
 		ArrayList<History> history=new ArrayList<History>();
 		Connection conn=Open.open();
-		String sql="select*from history";
+		String sql="select*from history where projectid=? AND riskid=?";
 		if(conn!=null){
 			try {
 				Statement stmt=conn.createStatement();
 				stmt.execute("use riskmanager;");
 				PreparedStatement ps=conn.prepareStatement(sql);
+				ps.setInt(1,proid);
+				ps.setInt(2, rid);
 				ResultSet rs=ps.executeQuery();
 				while(rs.next()){
 					History his=new History(rs.getInt("projectid"),rs.getInt("riskid"),rs.getString("time"),rs.getString("tracker"));
