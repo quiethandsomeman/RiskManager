@@ -8,7 +8,7 @@
 </head>
 <body>
 <div id="risk-table">
-     <form action="/riskmanager/jsp/doaddproject.jsp" method="post">
+     <form action="/riskmanager-0.0.1-SNAPSHOT/jsp/doaddproject.jsp" method="post">
     <table class="fixedtable">
         <tr>
             <td width="20%">

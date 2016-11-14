@@ -19,9 +19,9 @@
     Addproject ad=new Addproject();
     boolean re=ad.addProject(usrname,name,des);
     if(re==false){out.println("<script>alert('加入失败')</script>");
-        response.sendRedirect("/riskmanager/jsp/addproject.jsp");}
+        response.sendRedirect("/riskmanager-0.0.1-SNAPSHOT/jsp/addproject.jsp");}
     else{
-        response.sendRedirect("/riskmanager/jsp/projectlist.jsp");
+        response.sendRedirect("/riskmanager-0.0.1-SNAPSHOT/jsp/projectlist.jsp");
     }
 
 %>

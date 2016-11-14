@@ -29,7 +29,7 @@
         </td>
         <td>
             <div id="login-item">
-                <form action="/riskmanager/jsp/doregister.jsp" method="post">
+                <form action="/riskmanager-0.0.1-SNAPSHOT/jsp/doregister.jsp" method="post">
                     <input type="text" name="name" value="user id or e-mail address:)">
                     <br>
                     <input type="password" name="password">

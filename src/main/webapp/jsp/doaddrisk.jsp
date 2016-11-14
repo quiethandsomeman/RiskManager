@@ -24,9 +24,9 @@
     AddRisk ad=new AddRisk();
     boolean re=ad.addRisk(proid,usrname,"",pro,lev,th1,des);
     if(re==false){out.println("<script>alert('加入失败')</script>");
-        response.sendRedirect("/riskmanager/jsp/projectlist.jsp");}
+        response.sendRedirect("/riskmanager-0.0.1-SNAPSHOT/jsp/projectlist.jsp");}
     else{
-        response.sendRedirect("/riskmanager/jsp/projectlist.jsp");
+        response.sendRedirect("/riskmanager-0.0.1-SNAPSHOT/jsp/projectlist.jsp");
     }
 
 %>

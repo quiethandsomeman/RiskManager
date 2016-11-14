@@ -17,10 +17,10 @@
     boolean re=reg.register(name,password);
     
     if(re==false){out.println("<script>alert('用户名存在')</script>");
-        response.sendRedirect("/riskmanager/jsp/register.jsp");}
+        response.sendRedirect("/riskmanager-0.0.1-SNAPSHOT/jsp/register.jsp");}
     else{
         request.getSession().setAttribute("username",name);
-        response.sendRedirect("/riskmanager/jsp/login.jsp");
+        response.sendRedirect("/riskmanager-0.0.1-SNAPSHOT/jsp/login.jsp");
     }
 
 %>

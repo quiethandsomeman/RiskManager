@@ -23,7 +23,7 @@
                        response.sendRedirect("login.jsp");}
     else{
         request.getSession().setAttribute("username",name);
-        response.sendRedirect("/riskmanager/jsp/projectlist.jsp");
+        response.sendRedirect("/riskmanager-0.0.1-SNAPSHOT/jsp/projectlist.jsp");
     }
 
 %>
