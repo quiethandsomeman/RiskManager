@@ -1,9 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%! String username="user name"; %>
-<%! int projectnum = 2; %>
-<%! String projectitemname = "name"; 
-	String projectitemdes = "balbalbalbalbalblablablabalball";
+<%	username=(String) request.getAttribute("username"); %>
+<%! int listnum = 2; %>
+<%! String listitemname = "name"; 
+	String listitemdes = "balbalbalbalbalblablablabalball";
 	%>
 	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -32,15 +33,20 @@
 		<p> All Project </p>
 	</div>
 	<div class="list">
-		<%for(int i=projectnum;i>0;i--){ %>
+		<%for(int i=listnum;i>0;i--){ %>
 			<div class=projectlistitem>
 				<table>
 					<tr>
-						<td><p><%=projectitemname %></p></td>
-						<td><button name="checkproject" onClick="location.href='/riskmanager-0.0.1-SNAPSHOT/jsp/risklistoftracer.jsp?name="<%out.println("projectname"); %>> Check </button></td>
+						<td><p><%=listitemname %></p></td>
+						<td>
+							<form action="">
+								<input name="pname" type="hidden" value=<%=listitemname %>>
+								<input name="checkproject" type="submit" value="Check" onClick="location.href:'SubCheckProject'">
+							</form>
+						</td>
 					</tr>
 					<tr>
-						<td><p>Description: <%=projectitemdes %></p></td>
+						<td><p>Description: <%=listitemdes %></p></td>
 					</tr>
 				</table>
 			</div>

@@ -1,15 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%! String username="user name"; %>
+<%	username=(String)request.getAttribute("username"); %>
 <%! String projectname="project name"; 
 	String projectdescription = "project description";
 	%>
+<%	projectname=(String)request.getAttribute("pname"); 
+	projectdescription = (String)request.getAttribute("pdescription");%>
 <%! int listnum = 2; %>
 <%! String listitemtype = "type"; 
 	String listitemdes = "balbalbalbalbalblablablabalball";
 	String listitempossibility = "high";
 	String listitemimpact = "high";
 	String listitemthreshold = "balabala 70%";
+	String listitemid = "xxx";
 	%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -45,17 +49,28 @@
 		<table>
 			<tr>
 				<td width="60%"><p> Risk List </p></td>
-				<td><button name="addrisk" onClick="location.href='/riskmanager-0.0.1-SNAPSHOT/jsp/addriskofsubmitter.jsp'"> Add Risk</button></td>
+				<td>
+					<form action="ToAddRisk">
+						<input name="pname" type="hidden" value=<%=projectname %>>
+						<input name="username" type="hidden" value=<%=username %>>
+						<input name="addrisk" type="submit" value="Add Risk">
+					</form>
+				</td>
 			</tr>
 		</table>
 	</div>
 	<div class="list">
 		<%for(int i=listnum;i>0;i--){ %>
-			<div class=projectlistitem>
+			<div class=listitem>
 				<table>
 					<tr>
 						<td><p><%=listitemtype %></p></td>
-						<td><button name="check" onClick="location.href='/riskmanager-0.0.1-SNAPSHOT/jsp/risklistofsubmitter.jsp?name="<%out.println("projectname"); %>> Check </button></td>
+						<td>
+							<form action="SubCheckRiskTrap">
+								<input type="hidden" name="riskid" value=<%=listitemid %>>
+								<input type="submit" value="Check Trap">
+							</form>
+						</td>
 					</tr>
 					<tr>
 						<td><p>Description: <%=listitemdes %></p></td>

@@ -4,6 +4,66 @@
 
 <web-app>
 	<display-name>Archetype Created Web Application</display-name>
+	<servlet>
+		<servlet-name>CheckAccount</servlet-name>
+		<display-name>CheckAccount</display-name>
+		<description></description>
+		<servlet-class>riskmanager.servlet.CheckAccount</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>SubCheckProject</servlet-name>
+		<display-name>SubCheckProject</display-name>
+		<description></description>
+		<servlet-class>riskmanager.servlet.SubCheckProject</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>SubCheckRiskTrap</servlet-name>
+		<display-name>SubCheckRiskTrap</display-name>
+		<description></description>
+		<servlet-class>riskmanager.servlet.SubCheckRiskTrap</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AddRisk</servlet-name>
+		<display-name>AddRisk</display-name>
+		<description></description>
+		<servlet-class>riskmanager.servlet.AddRisk</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ToAddRisk</servlet-name>
+		<display-name>ToAddRisk</display-name>
+		<description></description>
+		<servlet-class>riskmanager.servlet.ToAddRisk</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>RiskStateChange</servlet-name>
+		<display-name>RiskStateChange</display-name>
+		<description></description>
+		<servlet-class>riskmanager.servlet.RiskStateChange</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CheckAccount</servlet-name>
+		<url-pattern>/jsp/CheckAccount</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>SubCheckProject</servlet-name>
+		<url-pattern>/jsp/SubCheckProject</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>SubCheckRiskTrap</servlet-name>
+		<url-pattern>/jsp/SubCheckRiskTrap</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AddRisk</servlet-name>
+		<url-pattern>/jsp/AddRisk</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ToAddRisk</servlet-name>
+		<url-pattern>/jsp/ToAddRisk</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>RiskStateChange</servlet-name>
+		<url-pattern>/RiskStateChange</url-pattern>
+	</servlet-mapping>
 
 	<welcome-file-list>
 		<welcome-file>/jsp/login.jsp</welcome-file>

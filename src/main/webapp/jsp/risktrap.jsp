@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%! String username="user name"; %>
+<%	username=(String)request.getAttribute("username"); %>
 <%! int trapnum = 5;  
 	String time = "2016-1-1 24:00:00:00";
 	String tracer = "user name";

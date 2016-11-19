@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%! String username="user name"; %>
+<%! String username= "username"; %>
+<%	username=(String)request.getAttribute("username"); %>
 <%! int projectnum = 2; %>
 <%! String listitemname = "name"; 
 	String listitemdes = "balbalbalbalbalblablablabalball";
@@ -45,7 +46,13 @@
 				<table>
 					<tr>
 						<td><p><%=listitemname %></p></td>
-						<td><button name="checkproject" onClick="location.href='/riskmanager-0.0.1-SNAPSHOT/jsp/risklistofsubmitter.jsp?name="<%out.println("projectname"); %>> Check </button></td>
+						<td>
+						<form action="SubCheckProject">
+							<input name="username" type="hidden" value=<%= username %>>
+							<input name="pname" type="hidden" value=<%=listitemname %>>
+							<input name="checkproject" type="submit" value="Check" onClick="location.href:'SubCheckProject'">
+						</form>
+						</td>
 					</tr>
 					<tr>
 						<td><p>Description: <%=listitemdes %></p></td>
