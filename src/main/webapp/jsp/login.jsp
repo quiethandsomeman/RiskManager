@@ -34,7 +34,7 @@
 				<br>
 				<input type="password" name="password">
 				<br>
-				<input type="submit" name="login" value="login"><input type="button" name="register" value="register" onclick="location.href='/riskmanager-0.0.1-SNAPSHOT/jsp/register.jsp'"/>
+				<input type="submit" name="login" value="login">
 				</form></div>
 			</td>
 		</tr>
