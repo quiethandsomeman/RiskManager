@@ -27,6 +27,7 @@ public class RiskStateChange extends HttpServlet {
 		// TODO Auto-generated method stub
 		String riskid= request.getParameter("radioname");
 		String state = request.getParameter(riskid);
+		System.out.println(state);
 	}
 
 	/**

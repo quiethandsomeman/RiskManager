@@ -62,7 +62,7 @@
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>RiskStateChange</servlet-name>
-		<url-pattern>/RiskStateChange</url-pattern>
+		<url-pattern>/jsp/RiskStateChange</url-pattern>
 	</servlet-mapping>
 
 	<welcome-file-list>

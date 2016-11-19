@@ -39,7 +39,7 @@
 					<tr>
 						<td><p><%=listitemname %></p></td>
 						<td>
-							<form action="">
+							<form action="SubCheckProject">
 								<input name="pname" type="hidden" value=<%=listitemname %>>
 								<input name="checkproject" type="submit" value="Check" onClick="location.href:'SubCheckProject'">
 							</form>

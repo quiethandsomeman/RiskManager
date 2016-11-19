@@ -31,7 +31,7 @@ public class CheckAccount extends HttpServlet {
 		if(username.equals("aaa")&&pwd.equals("aaa")){
 			System.out.println("success");
 			String success_url = "indexofsubmitter.jsp";
-			role = "sub";
+			role = "tra";
 			if(role.equals("sub")){
 				
 			}else if(role.equals("tra")){

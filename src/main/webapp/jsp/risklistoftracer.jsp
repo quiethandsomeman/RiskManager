@@ -40,11 +40,25 @@
 			margin-top:0.5cm;
 			margin-left:0.5cm;
 		}
+		div.project-description{
+			margin-top:0.5cm;
+			margin-left:0.5cm;
+		}
 	</style>
 </head>
 <body>
 	<div class="welcome">
 		<p class="welcometext">Welcome, <%=username %></p>
+	</div>
+	<div class="project-description">
+		<table>
+			<tr>
+				<td><p><%=projectname %></p></td>
+			</tr>
+			<tr>
+				<td><p>Description: <%=projectdescription %></p></td>
+			</tr>
+		</table>
 	</div>
 	<div class="listtitle">
 		<table>
