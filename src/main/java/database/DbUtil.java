@@ -29,7 +29,7 @@ public class DbUtil {
 
 	static {
 		try {
-			Class.forName(Constants.DRIVER);// jdbc
+			Class.forName("com.mysql.jdbc.Driver");// jdbc
 
 		} catch (ClassNotFoundException e) {
 
