@@ -38,7 +38,7 @@ public class DbUtil {
 
 		try {
 
-			conn = DriverManager.getConnection(Constants.URL, Constants.USER, Constants.PASSWORD);// url+用户名+密码
+			conn = DriverManager.getConnection("jdbc:mysql://122.112.227.175:3306/riskmanager?characterEncoding=utf8","root","123456");// url+用户名+密码
 			System.out.println("连接数据库成功");
 		} catch (SQLException e) {
 
