@@ -36,6 +36,6 @@ public class Test {
 		
 		//System.out.println(new RiskPlanDAO().getAllPlanByUsername("analyzer").size());
 	
-		System.out.println(new RiskTypeDAO().getAllIdentifiedRiskByTime("1", "2"));
+		new RiskTypeDAO().getAllRiskStateByTime("", "");
 	}
 }
