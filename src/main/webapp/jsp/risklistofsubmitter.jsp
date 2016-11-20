@@ -75,7 +75,7 @@
 			<tr>
 				<td width="60%"><p> Risk List </p></td>
 				<td>
-					<form action="ToAddRisk">
+					<form action="ToAddRisk" method="post">
 						<input name="pname" type="hidden" value=<%=projectname %>>
 						<input name="pid" type="hidden" value=<%=projectid %>>
 						<input name="pdescription" type="hidden" value=<%=projectdescription %>> 
@@ -100,7 +100,7 @@
 				<tr>
 					<td><p><%=listitemtype %></p></td>
 					<td>
-						<form action="SubCheckRiskTrap">
+						<form action="SubCheckRiskTrap" method="post">
 							<input type="hidden" name="riskid" value=<%=listitemid %>>
 							<input type="submit" value="Check Trap">
 						</form>

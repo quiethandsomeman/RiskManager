@@ -87,7 +87,7 @@
 				<tr>
 					<td><p><%=listitemtype %></p></td>
 					<td>
-						<form action="SubCheckRiskTrap">
+						<form action="SubCheckRiskTrap" method="post">
 							<input type="hidden" name="riskid" value=<%=listitemid %>>								<input type="submit" value="Check Trap">
 						</form>
 						<form action="ToRiskStateChange">

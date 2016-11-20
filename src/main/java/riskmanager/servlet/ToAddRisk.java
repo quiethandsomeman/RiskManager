@@ -32,6 +32,9 @@ public class ToAddRisk extends HttpServlet {
 		// TODO Auto-generated method stub
 		//String username=request.getParameter("username");
 		request.setCharacterEncoding("UTF-8");
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		String pname=request.getParameter("pname");
 		String pdescription = request.getParameter("pdescription");
 		String pid= request.getParameter("pid");

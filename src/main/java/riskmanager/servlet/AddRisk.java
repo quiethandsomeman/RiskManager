@@ -30,6 +30,10 @@ public class AddRisk extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		
 		String type=request.getParameter("rtype");
 		String description=request.getParameter("rdescription");
 		String possibility=request.getParameter("rpossibility");
@@ -39,7 +43,7 @@ public class AddRisk extends HttpServlet {
 		String pname=request.getParameter("pname");
 		String pdescription=request.getParameter("pdescription");
 		String pid=request.getParameter("pid");
-		//System.out.println(type+"+"+description);
+		System.out.println(type+"+"+description+"+"+possibility+"+"+impact+"+"+threshold);
 		String success_url = "SubCheckProject";
 		//System.out.println(username+"+"+pname);
 		RiskInfo target = new RiskInfo(Integer.parseInt(pid),type,description,

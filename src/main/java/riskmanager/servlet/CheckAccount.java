@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
+import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -35,6 +36,8 @@ public class CheckAccount extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		username=request.getParameter("name");
 		String pwd = request.getParameter("password");
 		
@@ -52,6 +55,7 @@ public class CheckAccount extends HttpServlet {
 			}
 			else if(result==2){
 				role="ana";
+				success_url = "RAlist.jsp";
 			}
 			ArrayList<ProjectInfo> prolist = prodao.getAllProjects();
 			request.setAttribute("prolist", prolist);

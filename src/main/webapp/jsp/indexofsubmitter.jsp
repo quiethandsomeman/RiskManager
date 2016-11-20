@@ -55,9 +55,11 @@
 			%>
 			<table>
 					<tr>
-						<td><p><%=listitemname %></p></td>
 						<td>
-						<form action="SubCheckProject">
+						<p><%=listitemname %></p>
+						</td>
+						<td>
+						<form action="SubCheckProject" method="post">
 							<input name="username" type="hidden" value=<%= username %>>
 							<input name="pname" type="hidden" value=<%=listitemname %>>
 							<input name="pid" type="hidden" value=<%=temp.getId() %>> 
@@ -67,8 +69,10 @@
 						</td>
 					</tr>
 					<tr>
-						<td><p>Description: <%=listitemdes %></p></td>
+						<td colspan="2"><p>Description: <%=listitemdes %></p></td>
 					</tr>
+					<br>
+					<br>
 				</table>		
 		<%} %>
 	</div>

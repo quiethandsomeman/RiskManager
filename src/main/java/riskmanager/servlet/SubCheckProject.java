@@ -31,14 +31,17 @@ public class SubCheckProject extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		String role=CheckAccount.role;
 		String pname=request.getParameter("pname");
 		String pdescription=request.getParameter("pdescription");
 		String pid=request.getParameter("pid");
-		//System.out.println("########"+pname+"###"+pid);
+		System.out.println("########"+pname+"###pidpidpid"+pid);
 		ArrayList<RiskInfo> risklist = dao.getRiskListByPid(Integer.parseInt(pid));
 		//String username= request.getParameter("username");
-		//System.out.println("@@@@@@@@@@"+risklist.size());
+		System.out.println("@@@@@@@@@@"+risklist.size());
 		//RiskInfo temp = risklist.get(1);
 		//System.out.println("@@@@@@@@@@"+temp.getRiskId());
 		//System.out.println("@@@@@@@@@@"+temp.getType());

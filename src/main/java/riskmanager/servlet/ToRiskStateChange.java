@@ -25,6 +25,9 @@ public class ToRiskStateChange extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		String username = CheckAccount.username;
 		String riskid = request.getParameter("riskid");
 		request.setAttribute("username", username);
