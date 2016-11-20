@@ -16,7 +16,7 @@ public class RiskPlanDAO {
 	}
 	
 	public void createRiskPlan(RiskPlan riskplan){
-		String sql = "insert into risk_plan(name,description) values('"
+		String sql = "insert into risk_plan(name,description,username) values('"
 				+ riskplan.getName() + "','" + riskplan.getDescription() + "','" + riskplan.getUsername()+ "')";
 		System.out.println(sql);
 		DbUtil.executeInsert(sql);
