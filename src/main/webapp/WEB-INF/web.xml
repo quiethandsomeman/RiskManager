@@ -77,7 +77,7 @@
 	
 	<servlet-mapping>
 		<servlet-name>CheckAccount</servlet-name>
-		<url-pattern>/riskmanager-0.0.1-SNAPSHOT/CheckAccount</url-pattern>
+		<url-pattern>/riskmanager-0.0.1-SNAPSHOT/jsp/CheckAccount</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>SubCheckProject</servlet-name>
