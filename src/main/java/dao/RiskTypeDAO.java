@@ -25,7 +25,7 @@ public class RiskTypeDAO {
 		return list;
 	}
 	
-	public ArrayList<RiskType> getAllTypeByTime(){
+	public ArrayList<RiskType> getAllIdentifiedRiskByTime(String starttime,String endtime){
 		
 	}
 }
