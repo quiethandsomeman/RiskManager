@@ -16,7 +16,7 @@ public class RiskType {
 		this.typename = typename;
 		this.identified = identified;
 		this.worsen = worsen;
-		this.typename=name;
+		this.name=name;
 	}
 	
 	public RiskType(String typename) {

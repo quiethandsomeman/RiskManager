@@ -1,12 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1"
+    import="java.util.*"
+    import="model.RiskType"
+    %>
      <%! String username="user name"; %>
      <%	username=(String)request.getAttribute("username"); %>
+     <%	System.out.println("*********"+username); %>
+     
+      <%-- <%  int [] rec=new int[10];
+          int [] pro=new int[10];
+          String[] name=new String [10];%>
+      <%! ArrayList<RiskType> art=new ArrayList<RiskType>();%>
+      <%  art=(ArrayList<RiskType>)request.getAttribute("list");
+          int number=art.size();
+          for(int i=0;i<number;i++){
+        	  rec[i]=art.get(i).getIdentified();
+        	  pro[i]=art.get(i).getWorsen();
+        	  name[i]=art.get(i).getTypename();
+          }%> --%>
 <%! String RAname="RA name"; 
-	String RAdescription = "RA description";
-	String RAid=""; %>
+	String RAdescription = "RA description";%>
 	<% 
-	RAid=(String)request.getAttribute("RAid");
+	RAname=(String)request.getAttribute("RAname");
 	%>
 <%! int listnum = 10; %>
 <%! String listitemname = "name"; 
@@ -59,6 +74,14 @@
 			margin-left:200px;
 			margin-top:0.5cm;
 		}
+		input.button_left{
+			margin-left:5cm;
+			float:left;
+		}
+		input.button_right{
+			margin-right:5cm;
+			float:right;
+		}
 	</style>
 </head>
 <body>
@@ -69,7 +92,7 @@
 		<form action="SubCheckRA">
 		<p class="button_home">
 			
-				<input name="username" type="hidden" value=<%= username %>/>
+				<input name="username" type="hidden" value=<%= username %>>
 				<input type="submit" name="Home" value="Home" style="overflow:visible;padding:0;border:0;background-color:transparent;color:white" />
 			
 		</p>
@@ -77,12 +100,12 @@
 	</div>
 	<div class="listtitle" style="text-align:center">
 		<font size=4 >
-			Risk List
+			<%=RAname %>
 		</font>
 		<form action="ShowRA">
 		<p class="button_home">
-			<input name="username" type="hidden" value=<%= username %>/>
-			<input type="submit" name="Add" value="Add" style="overflow:visible;padding:0;border:0;background-color:transparent;color:blue;" />
+			<input name="username" type="hidden" value=<%= username %>>
+			<input type="submit" name="Add" value="Add Risk" style="overflow:visible;padding:0;border:0;background-color:transparent;color:blue;" />
 		</p>
 		</form>
 	</div>
@@ -106,13 +129,17 @@
 						<td>
 						<form action="ManageRA" onsubmit="return firm(this);">
 							<input name="username" type="hidden" value=<%= username %>>
-							<input name="RAid" type="hidden" value=<%=RAid %>>
-							<input type="submit" name="delete" value="delete"/>
+							<input name="RAname" type="hidden" value=<%=RAname %>>
+							<input type="submit" name="delete" value="delete">
 						</form>
 					</tr>
 				<%} %>
 			</table>
 		
+	</div>
+	<div>
+		<input class="button_left" type="button" name="drawrec" value="most recognized" onclick="lookup1()">
+		<input class="button_right" type="button" name="drawrec" value="most problem" onclick="lookup2()">
 	</div>
 </body>
 </html>

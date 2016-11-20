@@ -14,6 +14,19 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Add RA Item</title>
+<script type="text/javascript" language="javascript">
+	function firm(form){
+		var temp = "";
+		var a = document.getElementsByName("checkbox");
+		for ( var i = 0; i < a.length; i++) {
+			if (a[i].checked) {
+				temp = a[i].value;
+				bb = bb + "," +temp;
+			}
+		}
+		document.getElementById("tempString").value = bb.substring(1, bb.length);
+	}
+</script>
 <style type="text/css">
 	div.welcome{
 		margin-left:0.5cm;
@@ -95,7 +108,7 @@
 						<td><p><%=listitemname %></p></td>
 						<td ><p><%=recognized %></p></td>
 						<td ><p><%=problems %></p></td>
-						<td><input type="checkbox" name=<%=listitemname %>/></td>
+						<td><input type="checkbox" name="checkbox" value=<%=listitemname+"|"+recognized+"|"+problems%>></td>
 					</tr>
 				<%} %>
 			</table>
@@ -103,11 +116,13 @@
 	<div class=listtitle>
 	<table>
 		<tr>
-			<td><p> RANanme:</p><td>
-			<td>
-			<form>
-			<input type="text" name="RAname" value="input your RAname" />
-			<input type="submit" name="submit" value="Add"/>
+			<td> 
+			<form action="ManageRA" onsubmit="return firm(this);">
+			<input type="hidden">RAName:
+			<input type="hidden" id="tempString" name="tempString" >
+			<input type="text" name="RAname" value="input your RAname" >
+			<textarea rows="3" cols="60" name="RAdes" ></textarea>
+			<input type="submit" name="submit" value="Add">
 			</form>
 			</td>
 			
