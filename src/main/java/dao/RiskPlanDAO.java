@@ -72,6 +72,33 @@ public class RiskPlanDAO {
 		return DbUtil.executeInsert(sql);
 	}
 	
+	public ArrayList<RiskType> getAllRiskByname(String name){
+		String sql = "select * from plan_detail where name = '" + name + "'";
+		ResultSet rs = DbUtil.getResultSet(sql);
+		RiskType info = null;
+		ArrayList<RiskType> list = new ArrayList<RiskType>();
+		try {
+			while (rs.next()) {
+				String type=rs.getString(1);
+				System.out.println(type);
+				int identified=rs.getInt(2);
+				System.out.println(identified);
+				int worsen=rs.getInt(3);
+				System.out.println(worsen);
+				info = new RiskType();
+				info.setTypename(type);
+				info.setIdentified(identified);
+				info.setWorsen(worsen);
+				list.add(info);
+			}
+			return list;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;// 数据库 error
+		}
+	}
+	
 	
 	
 }

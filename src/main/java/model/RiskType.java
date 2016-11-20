@@ -19,6 +19,14 @@ public class RiskType {
 		this.name=name;
 	}
 	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public RiskType(String typename) {
 		this.typename = typename;
 	}
