@@ -48,7 +48,7 @@ public class CheckAccount extends HttpServlet {
 				role="sub";
 			}else if(result==1){
 				role="tra";
-				success_url = "/riskmanager-0.0.1-SNAPSHOT/indexoftracer.jsp";
+				success_url = "indexoftracer.jsp";
 			}
 			else if(result==2){
 				role="ana";
