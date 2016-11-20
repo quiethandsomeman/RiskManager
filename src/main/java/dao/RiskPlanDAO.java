@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import database.DbUtil;
 import model.RiskInfo;
 import model.RiskPlan;
+import model.RiskType;
 
 public class RiskPlanDAO {
 
@@ -14,9 +15,27 @@ public class RiskPlanDAO {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public int createRiskPlan(RiskPlan riskplan){
+	public void createRiskPlan(RiskPlan riskplan){
 		String sql = "insert into risk_plan(name,description) values('"
 				+ riskplan.getName() + "','" + riskplan.getDescription() + "','" + riskplan.getUsername()+ "')";
+		System.out.println(sql);
+		DbUtil.executeInsert(sql);
+		ArrayList<RiskType> list=riskplan.getList();
+		for(RiskType r:list){
+			int i=insertRiskType(riskplan.getName(),r);
+			System.out.println(i);
+		}
+	}
+	
+	public void updateRiskPlan(String name,ArrayList<RiskType> list){
+		for(RiskType r:list){
+			int i=insertRiskType(name,r);
+			System.out.println(i);
+		}
+	}
+	
+	public int deleteRiskType(String name,String typename){
+		String sql = "delete from plan_detail where name = '"+name+"' and type = '"+typename+"'";
 		System.out.println(sql);
 		return DbUtil.executeInsert(sql);
 	}
@@ -45,4 +64,14 @@ public class RiskPlanDAO {
 			return null;// 数据库 error
 		}
 	}
+	
+	public int insertRiskType(String name,RiskType risktype){
+		String sql = "insert into plan_detail(type,worsen,identified,name) values('"
+				+ risktype.getTypename() + "','" + risktype.getWorsen() + "','" + risktype.getIdentified()+ "','" + name+"')";
+		System.out.println(sql);
+		return DbUtil.executeInsert(sql);
+	}
+	
+	
+	
 }

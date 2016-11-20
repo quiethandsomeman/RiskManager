@@ -1,16 +1,28 @@
 package model;
 
+import java.util.ArrayList;
+
 public class RiskPlan {
 	private int planId;
 	private String name;
 	private String description;
 	private String username;
+	private ArrayList<RiskType> list;
 	
-	public RiskPlan(String name, String description, String username) {
+	public RiskPlan(String name, String description, String username,ArrayList<RiskType> list) {
 		super();
 		this.name = name;
 		this.description = description;
 		this.username = username;
+		this.list=list;
+	}
+
+	public ArrayList<RiskType> getList() {
+		return list;
+	}
+
+	public void setList(ArrayList<RiskType> list) {
+		this.list = list;
 	}
 
 	public String getUsername() {

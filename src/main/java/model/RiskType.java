@@ -5,16 +5,18 @@ public class RiskType {
 	private String typename;
 	private int identified;
 	private int worsen;
+	private String name;
 	
 	public RiskType() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public RiskType(String typename, int identified, int worsen) {
+	public RiskType(String typename, int identified, int worsen,String name) {
 		super();
 		this.typename = typename;
 		this.identified = identified;
 		this.worsen = worsen;
+		this.typename=name;
 	}
 	
 	public RiskType(String typename) {
