@@ -4,10 +4,9 @@ import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 
 public class RiskInfo {
-	
-	private int riskid;
+
 	private int projectId;
-	private int type;
+	private String type;
 	private String description;
 	private int possibility;
 	private int impact;
@@ -15,7 +14,7 @@ public class RiskInfo {
 	private String submitter;
 	private String date;
 
-	public RiskInfo(int projectId, int type, String description, int possibility, int impact, String trigger,
+	public RiskInfo(int projectId, String type, String description, int possibility, int impact, String trigger,
 			String submitter) {
 		super();
 		this.projectId = projectId;
@@ -43,11 +42,11 @@ public class RiskInfo {
 		this.projectId = projectId;
 	}
 
-	public int getType() {
+	public String getType() {
 		return type;
 	}
 
-	public void setType(int type) {
+	public void setType(String type) {
 		this.type = type;
 	}
 

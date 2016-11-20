@@ -19,7 +19,7 @@ public class Test {
 		//Timestamp nowdate = new Timestamp(System.currentTimeMillis());
 		//System.out.println(sdf.format(nowdate));
 		
-		RiskInfo riskinfo=new RiskInfo(1,1,"This is description.",1,1,"This is threshold","submitter");
+		RiskInfo riskinfo=new RiskInfo(1,"范围风险","This is description.",1,1,"This is threshold","submitter");
 		System.out.println(new SubmitterDAO().SubmitRisk(riskinfo));
 	}
 }
