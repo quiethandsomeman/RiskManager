@@ -46,6 +46,18 @@
 		<description></description>
 		<servlet-class>riskmanager.servlet.ToRiskStateChange</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>identityrisk</servlet-name>
+		<display-name>identityrisk</display-name>
+		<description></description>
+		<servlet-class>riskmanager.servlet.identityrisk</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>beproblemrisk</servlet-name>
+		<display-name>beproblemrisk</display-name>
+		<description></description>
+		<servlet-class>riskmanager.servlet.beproblemrisk</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>CheckAccount</servlet-name>
 		<url-pattern>/jsp/CheckAccount</url-pattern>
@@ -73,6 +85,14 @@
 	<servlet-mapping>
 		<servlet-name>ToRiskStateChange</servlet-name>
 		<url-pattern>/jsp/ToRiskStateChange</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>identityrisk</servlet-name>
+		<url-pattern>/identityrisk</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>beproblemrisk</servlet-name>
+		<url-pattern>/beproblemrisk</url-pattern>
 	</servlet-mapping>
 	
 	<welcome-file-list>
