@@ -37,6 +37,9 @@
 			margin-top:0.5cm;
 			margin-left:0.5cm;
 		}
+		table.normal{
+			border:solid 1px #add9c0;
+		}
 		
 	</style>
 </head>
@@ -53,7 +56,7 @@
 			listitemname = temp.getName();
 			listitemdes = temp.getDescription();
 			%>
-			<table>
+			<table class="normal">
 					<tr>
 						<td>
 						<p><%=listitemname %></p>

@@ -10,8 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.ProjectDAO;
+import dao.RiskPlanDAO;
 import dao.UserDAO;
 import model.ProjectInfo;
+import model.RiskPlan;
 
 /**
  * Servlet implementation class CheckAccount
@@ -23,6 +25,7 @@ public class CheckAccount extends HttpServlet {
 	
     UserDAO usrdao = new UserDAO();
     ProjectDAO prodao = new ProjectDAO();
+    RiskPlanDAO risdao = new RiskPlanDAO();
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -58,8 +61,10 @@ public class CheckAccount extends HttpServlet {
 				success_url = "RAlist.jsp";
 			}
 			ArrayList<ProjectInfo> prolist = prodao.getAllProjects();
+			ArrayList<RiskPlan> planlist = risdao.getAllPlanByUsername(username);
 			request.setAttribute("prolist", prolist);
 			request.setAttribute("username", username);
+			request.setAttribute("riskplan", planlist);
 			request.getRequestDispatcher("/jsp/"+success_url).forward(request, response);
 			//response.sendRedirect(success_url);
 		}
