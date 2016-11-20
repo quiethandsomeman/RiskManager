@@ -42,11 +42,11 @@ public class RiskTypeDAO {
 			System.out.println(type);
 			System.out.println(i);
 			System.out.println(j);
-			return new RiskType(type, i, j);
+			return new RiskType(type, i, j,"");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return new RiskType(type, 0, 0);
+			return new RiskType(type, 0, 0,"");
 		}
 	}
 	
