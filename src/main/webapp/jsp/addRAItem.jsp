@@ -6,7 +6,8 @@
 	%>
 <%! int listnum = 10; %>
 <%! String listitemname = "nababababaaabame"; 
-	String listitemdes = "balbalbalbalbalblablablabalball";
+	String recognized="4";
+	String problems="3";
 	%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -45,6 +46,10 @@
 		margin-left:100px;
 		margin-top:0.5cm;
 	}
+	input.submit{
+		margin-right:7.5cm;
+		float:right;
+	}
 </style>
 <script type="text/javascript" language="javascript" src="My97DatePicker/WdatePicker.js"></script>
 </head>
@@ -77,17 +82,37 @@
 			Risk List
 		</font>
 	</div>
-	<div class="list" >
-		<%for(int i=listnum;i>0;i--){ %>
-			<div class=ralistitem>
-				<table align="center">
+	<div class="list" style="text-align:center">
+		<table frame="box" rules="all" width="1000px" >
+			<tr >
+				<th><p>RiskName</p></th>
+				<th><p>recognized(times)</p></th>
+				<th><p>problem(times)</p></th>
+				<th><p>choose or not</p></th>
+			</tr>
+				<%for(int i=listnum;i>0;i--){ %>
 					<tr>
-						<td align="center"><input type="checkbox" name="checkbox"/></td>
-						<td align="center"><p><%=listitemname %></p></td>
+						<td><p><%=listitemname %></p></td>
+						<td ><p><%=recognized %></p></td>
+						<td ><p><%=problems %></p></td>
+						<td><input type="checkbox" name=<%=listitemname %>/></td>
 					</tr>
-				</table>
-			</div>
-		<%} %>
+				<%} %>
+			</table>
+	</div>
+	<div class=listtitle>
+	<table>
+		<tr>
+			<td><p> RANanme:</p><td>
+			<td>
+			<form>
+			<input type="text" name="RAname" value="input your RAname" />
+			<input type="submit" name="submit" value="Add"/>
+			</form>
+			</td>
+			
+		</tr>
+	</table>
 	</div>
 </body>
 </html>

@@ -1,12 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
      <%! String username="user name"; %>
+     <%	username=(String)request.getAttribute("username"); %>
 <%! String RAname="RA name"; 
 	String RAdescription = "RA description";
+	String RAid=""; %>
+	<% 
+	RAid=(String)request.getAttribute("RAid");
 	%>
 <%! int listnum = 10; %>
 <%! String listitemname = "name"; 
-	String listitemdes = "balbalbalbalbalblablablabalball";
+	String start="2010-06-06";
+	String end="2012-10-23";
+	String recognized="5";
+	String problems="10";
 	%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -14,11 +21,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>RA Manage</title>
 <script type="text/javascript" language="javascript">
-	function firm(){
+	function firm(form){
 		if(confirm("Confirm delete?")){
-			alert("success");
+			return true;
 		}else{
-      		alert("cancle");
+      		return false;
 		}
 	}
 </script>
@@ -51,9 +58,6 @@
 			width:1000px;
 			margin-left:200px;
 			margin-top:0.5cm;
-			border-style:solid; 
-			border-width:1px; 
-			border-color:#000
 		}
 	</style>
 </head>
@@ -62,36 +66,53 @@
 		<font size=5 class="welcometext" >
 			RA MANAGER SYSTEM
 		</font>
+		<form action="SubCheckRA">
 		<p class="button_home">
-			<input type="button" name="Home" value="Home" style="overflow:visible;padding:0;border:0;background-color:transparent;color:white" onclick="location.herf='/RAlsit.jsp'"/>
+			
+				<input name="username" type="hidden" value=<%= username %>/>
+				<input type="submit" name="Home" value="Home" style="overflow:visible;padding:0;border:0;background-color:transparent;color:white" />
+			
 		</p>
+		</form>
 	</div>
 	<div class="listtitle" style="text-align:center">
 		<font size=4 >
 			Risk List
 		</font>
-		<p class="button_add">
-			<input type="button" name="Add" value="Add" style="overflow:visible;padding:0;border:0;background-color:transparent;color:blue;" onclick="location.herf='/RAlsit.jsp'"/>
-		</p>
+		<form action="ShowRA">
 		<p class="button_home">
-			<input type="button" name="Show" value="Show" style="overflow:visible;padding:0;border:0;background-color:transparent;color:blue;" onclick="location.herf='/RAlsit.jsp'"/>
+			<input name="username" type="hidden" value=<%= username %>/>
+			<input type="submit" name="Add" value="Add" style="overflow:visible;padding:0;border:0;background-color:transparent;color:blue;" />
 		</p>
-		
+		</form>
 	</div>
-	<div class="list" >
-		<%for(int i=listnum;i>0;i--){ %>
-			<div class=ralistitem>
-				<table >
+	<div class="list" style="text-align:center">
+			<table frame="box" rules="all" width="1000px" >
+			<tr >
+				<th><p>RiskName</p></th>
+				<th><p>StartTime</p></th>
+				<th><p>EndTimr</p></th>
+				<th><p>recognized(times)</p></th>
+				<th><p>problem(times)</p></th>
+				<th><p>operation</p></th>
+			</tr>
+				<%for(int i=listnum;i>0;i--){ %>
 					<tr>
-						<td width="93%"><p><%=listitemname %></p></td>
-						<td><button name="delete" onClick="firm()"> Delete </button></td>
+						<td ><p><%=listitemname %></p></td>
+						<td ><p><%=start %></p></td>
+						<td ><p><%=end %></p></td>
+						<td ><p><%=recognized %></p></td>
+						<td ><p><%=problems %></p></td>
+						<td>
+						<form action="ManageRA" onsubmit="return firm(this);">
+							<input name="username" type="hidden" value=<%= username %>>
+							<input name="RAid" type="hidden" value=<%=RAid %>>
+							<input type="submit" name="delete" value="delete"/>
+						</form>
 					</tr>
-					<tr>
-						<td><p>Description: <%=listitemdes %></p></td>
-					</tr>
-				</table>
-			</div>
-		<%} %>
+				<%} %>
+			</table>
+		
 	</div>
 </body>
 </html>

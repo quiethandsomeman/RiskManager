@@ -1,12 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%! String username="user name"; %>
-<%! String RAname="RA name"; 
-	String RAdescription = "RA description";
-	%>
+    <%	username=(String)request.getAttribute("username"); %>
 <%! int listnum = 2; %>
-<%! String listitemname = "name"; 
-	String listitemdes = "balbalbalbalbalblablablabalball";
+<%! String RAname = "name"; 
+	String RAdes = "balbalbalbalbalblablablabalball";
+	String RAid ="name";
 	%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -43,7 +42,7 @@
 		<table>
 			<tr>
 				<td width="60%"><p> RA List </p></td>
-				<td><button name="addRA" onClick="location.href='/riskmanager-0.0.1-SNAPSHOT/jsp/addriskofsubmitter.jsp'"> Add RA</button></td>
+				<td><form action="ShowRA"><input name="username" type="hidden" value=<%= username %>/><input type="submit" name="addRA" value="addRA"/></form></td>
 			</tr>
 		</table>
 	</div>
@@ -51,12 +50,20 @@
 		<%for(int i=listnum;i>0;i--){ %>
 			<div class=ralistitem>
 				<table>
+					
 					<tr>
-						<td><p><%=listitemname %></p></td>
-						<td><button name="check" onClick="location.href='/riskmanager-0.0.1-SNAPSHOT/jsp/risklistofsubmitter.jsp?name="<%out.println("projectname"); %>> Check </button></td>
+						<td><p><%=RAname %></p></td>
+						<td>
+						<form action="ManageRA">
+							<input name="username" type="hidden" value=<%= username %>>
+							<input name="RAid" type="hidden" value=<%=RAid %>>
+							<input type="submit" name="Check" value="Check"/>
+						</form>
+						</td>
 					</tr>
+					
 					<tr>
-						<td><p>Description: <%=listitemdes %></p></td>
+						<td><p>Description: <%=RAdes %></p></td>
 					</tr>
 				</table>
 			</div>

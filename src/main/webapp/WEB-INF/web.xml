@@ -53,6 +53,30 @@
 		<servlet-class>riskmanager.servlet.identityrisk</servlet-class>
 	</servlet>
 	<servlet>
+		<servlet-name>ShowRA</servlet-name>
+		<display-name>ShowRA</display-name>
+		<description></description>
+		<servlet-class>riskmanager.servlet.ShowRA</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ManageRA</servlet-name>
+		<display-name>ManageRA</display-name>
+		<description></description>
+		<servlet-class>riskmanager.servlet.ManageRA</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>SubCheckRA</servlet-name>
+		<display-name>SubCheckRA</display-name>
+		<description></description>
+		<servlet-class>riskmanager.servlet.SubCheckRA</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AddRAItem</servlet-name>
+		<display-name>AddRAItem</display-name>
+		<description></description>
+		<servlet-class>riskmanager.servlet.AddRAItem</servlet-class>
+	</servlet>
+	<servlet>
 		<servlet-name>beproblemrisk</servlet-name>
 		<display-name>beproblemrisk</display-name>
 		<description></description>
@@ -94,7 +118,19 @@
 		<servlet-name>beproblemrisk</servlet-name>
 		<url-pattern>/beproblemrisk</url-pattern>
 	</servlet-mapping>
-	
+	<servlet-mapping>
+		<servlet-name>ShowRA</servlet-name>
+		<url-pattern>/jsp/ShowRA</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ManageRA</servlet-name>
+		<url-pattern>/jsp/ManageRA</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>SubCheckRA</servlet-name>
+		<url-pattern>/jsp/SubCheckRA</url-pattern>
+	</servlet-mapping>
+
 	<welcome-file-list>
 		<welcome-file>/jsp/login.jsp</welcome-file>
 	</welcome-file-list>
