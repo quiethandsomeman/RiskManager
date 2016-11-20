@@ -3,6 +3,8 @@ package dao;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 import database.DbUtil;
 import model.RiskInfo;
@@ -63,6 +65,32 @@ public class RiskTypeDAO {
 		list.add(getRiskStateByTime("法律风险",starttime,endtime));
 		list.add(getRiskStateByTime("社会环境风险",starttime,endtime));
 		list.add(getRiskStateByTime("其他",starttime,endtime));
+		return list;
+	}
+	
+	public ArrayList<RiskType> getAllRiskDescByIdentified() {
+		ArrayList<RiskType> list = getAllRiskStateByTime("","");
+		Collections.sort(list,new Comparator<RiskType>(){
+            public int compare(RiskType arg0, RiskType arg1) {
+                return arg1.getIdentified()-arg0.getIdentified();
+            }
+        });
+		for(RiskType r:list){
+			System.out.println(r.getIdentified());
+		}
+		return list;
+	}
+	
+	public ArrayList<RiskType> getAllRiskDescByWorsen() {
+		ArrayList<RiskType> list = getAllRiskStateByTime("","");
+		Collections.sort(list,new Comparator<RiskType>(){
+            public int compare(RiskType arg0, RiskType arg1) {
+                return arg1.getWorsen()-arg0.getWorsen();
+            }
+        });
+		for(RiskType r:list){
+			System.out.println(r.getWorsen());
+		}
 		return list;
 	}
 }
