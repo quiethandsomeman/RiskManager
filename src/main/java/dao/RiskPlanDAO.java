@@ -29,9 +29,9 @@ public class RiskPlanDAO {
 		try {
 			while (rs.next()) {
 				String name=rs.getString(2);
-				System.out.println(sql);
+				System.out.println(name);
 				String description=rs.getString(3);
-				System.out.println(sql);
+				System.out.println(description);
 				info = new RiskPlan();
 				info.setName(name);
 				info.setDescription(description);

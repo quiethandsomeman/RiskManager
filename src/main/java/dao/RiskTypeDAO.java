@@ -1,7 +1,10 @@
 package dao;
 
+import java.sql.ResultSet;
 import java.util.ArrayList;
 
+import database.DbUtil;
+import model.RiskInfo;
 import model.RiskType;
 
 public class RiskTypeDAO {
@@ -26,6 +29,9 @@ public class RiskTypeDAO {
 	}
 	
 	public ArrayList<RiskType> getAllIdentifiedRiskByTime(String starttime,String endtime){
-		
+		String sql = "select * from risk_submit where projectid = " + pid;
+		ResultSet rs = DbUtil.getResultSet(sql);
+		RiskInfo info = null;
+		ArrayList<RiskInfo> list = new ArrayList<RiskInfo>();
 	}
 }
