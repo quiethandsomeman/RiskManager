@@ -12,17 +12,20 @@ import dao.RiskTypeDAO;
 import model.RiskType;
 
 /**
- * Servlet implementation class ShowRA
+ * Servlet implementation class Sort
  */
-public class ShowRA extends HttpServlet {
+public class Sort extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	public static String username; 
+	public static String username;
+	private static String choose;
+	ArrayList<RiskType> typelist=new ArrayList<RiskType>();
 	
 	RiskTypeDAO rt=new RiskTypeDAO();
+       
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ShowRA() {
+    public Sort() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,8 +38,14 @@ public class ShowRA extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		username=request.getParameter("username");
-		ArrayList<RiskType> typelist=new ArrayList<RiskType>();
-		typelist=rt.getAllRiskStateByTime("", "");
+		choose=request.getParameter("choose");
+		System.out.println("___________"+choose);
+		if(choose.equals("most recognized")){
+			typelist=rt.getAllRiskDescByIdentified();
+		}
+		else{
+			typelist=rt.getAllRiskDescByWorsen();
+		}
 		request.setAttribute("username", username);
 		request.setAttribute("risktypelist", typelist);
 		request.getRequestDispatcher("addRAItem.jsp").forward(request, response);
@@ -47,7 +56,7 @@ public class ShowRA extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+			doGet(request, response);
 	}
 
 }

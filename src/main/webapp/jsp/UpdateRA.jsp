@@ -100,7 +100,7 @@
 				<td><input type="button" name="sort" value="sort"/></td>
 			</tr>
 		</table>
-		<form action="UpdateRA">
+		<form action="UpdateRA" onsubmit="return firm(this);">
 			<input type="hidden" name="username" value=<%= username %>>
 			<input type="hidden" id="tempString" name="tempString" value="666">
 			<input type="hidden" name="RAname" value=<%=RAName %> >
@@ -128,7 +128,7 @@
 						<td><p><%=listitemname %></p></td>
 						<td ><p><%=recognized %></p></td>
 						<td ><p><%=problems %></p></td>
-						<td><input type="checkbox" name=<%=listitemname %>/></td>
+						<td><input type="checkbox" name="checkbox" value=<%=listitemname+";"+recognized+";"+problems%>></td>
 					</tr>
 				<%} %>
 			</table>

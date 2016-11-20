@@ -100,6 +100,12 @@
 		<description></description>
 		<servlet-class>riskmanager.servlet.AddRiskItem</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>Sort</servlet-name>
+		<display-name>Sort</display-name>
+		<description></description>
+		<servlet-class>riskmanager.servlet.Sort</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>CheckAccount</servlet-name>
 		<url-pattern>/jsp/CheckAccount</url-pattern>
@@ -159,6 +165,10 @@
 	<servlet-mapping>
 		<servlet-name>AddRiskItem</servlet-name>
 		<url-pattern>/jsp/AddRiskItem</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Sort</servlet-name>
+		<url-pattern>/jsp/Sort</url-pattern>
 	</servlet-mapping>
 
 	<welcome-file-list>

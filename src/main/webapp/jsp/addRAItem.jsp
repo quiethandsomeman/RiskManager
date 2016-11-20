@@ -38,6 +38,11 @@
 		document.getElementById("tempString").value = bb.substring(1, bb.length);
 		alert(document.getElementById("tempString").value);
 	}
+	function choose(form){
+		var temp=document.getElementById("sortway").value;
+		document.getElementById("choose").value=temp;
+		return true;
+	}
 </script>
 <style type="text/css">
 	div.welcome{
@@ -90,7 +95,8 @@
 	<div class="sort">
 		<table>
 			<tr>
-				<td><select name="sortway">
+				<td><select name="sortway" id="sortway">
+					<option selected>==sortway==</option>
 					<option value="mostrec"> most recognized </option>
 					<option value="mostpro"> most problem </option>
 				</select></td>
@@ -98,7 +104,14 @@
 				<td><input name="createdatetimeStart" style="width: 100px;" onFocus="WdatePicker({readOnly:true,dateFmt:'yyyy-MM-dd'})"/></td>
 				<td><p>to </p></td>
 				<td><input name="createdatetimeEnd" style="width: 100px;" onFocus="WdatePicker({readOnly:true,dateFmt:'yyyy-MM-dd'})"/></td>
-				<td><input type="button" name="sort" value="sort"/></td>
+				<td>
+				<form action="Sort" onsubmit="return choose(this);">
+				<input type="hidden" id="choose" name="choose" value="66666"/>
+				<input type="hidden" name="username" value=<%=username %>>
+				<input type="submit" name="sort" value="sort"/>
+				</form>
+				</td>
+			
 			</tr>
 		</table>
 	</div>

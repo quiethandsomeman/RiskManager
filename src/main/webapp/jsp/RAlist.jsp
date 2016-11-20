@@ -85,9 +85,14 @@
 			</div>
 		<%} %>
 	</div>
-	<div>
-		<input class="button_left" type="button" name="drawrec" value="most recognized" onclick=window.open("./iderisk.jsp")>
-		<input class="button_right" type="button" name="drawrec" value="most problem" onclick=window.open("./problemnum.jsp")>
+	<div class="listtitle" style="text-align:center">
+		<table>
+		<tr>
+			<td width=30%> 图表显示</td>
+			<td><input class="button_left" type="button" name="drawrec" value="按识别次数统计" onclick=window.open("./iderisk.jsp")></td>
+			<td><input class="button_left" type="button" name="drawrec" value="按演变问题次数统计" onclick=window.open("./problemnum.jsp")></td>
+			</tr>
+		</table>
 	</div>
 </body>
 </html>

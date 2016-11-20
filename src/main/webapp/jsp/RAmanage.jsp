@@ -105,7 +105,7 @@
 		<font size=4 >
 			<%=RAname %>
 		</font>
-		<form action="addRAItem">
+		<form action="AddRiskItem">
 		<p class="button_home">
 			<input name="username" type="hidden" value=<%= username %>>
 			<input name="RAName" type="hidden" value=<%= RAname %>>
@@ -145,9 +145,14 @@
 			</table>
 		
 	</div>
-	<div>
-		<input class="button_left" type="button" name="drawrec" value="most recognized" onclick="lookup1()">
-		<input class="button_right" type="button" name="drawrec" value="most problem" onclick="lookup2()">
+	<div class="listtitle" style="text-align:center">
+		<table>
+		<tr>
+			<td width=30%> 图表显示</td>
+			<td><input class="button_left" type="button" name="drawrec" value="按识别次数统计" onclick=""></td>
+			<td><input class="button_left" type="button" name="drawrec" value="按演变问题次数统计" onclick=""></td>
+			</tr>
+		</table>
 	</div>
 </body>
 </html>
