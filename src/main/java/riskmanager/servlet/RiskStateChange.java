@@ -36,7 +36,7 @@ public class RiskStateChange extends HttpServlet {
 		String remark = request.getParameter("remark");
 		int suc = dao.traceRisk(new TraceInfo(Integer.parseInt(riskid),state,remark,CheckAccount.username));
 		//System.out.println(state);
-		String success_url = "SubCheckProject";
+		//String success_url = "SubCheckProject";
 	}
 
 	/**

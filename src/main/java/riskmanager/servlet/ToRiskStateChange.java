@@ -30,7 +30,7 @@ public class ToRiskStateChange extends HttpServlet {
 		request.setAttribute("username", username);
 		request.setAttribute("riskid", riskid);
 		String success_url="tracerisk.jsp";
-		request.getRequestDispatcher(success_url).forward(request, response);
+		request.getRequestDispatcher("/jsp/"+success_url).forward(request, response);
 	}
 
 	/**

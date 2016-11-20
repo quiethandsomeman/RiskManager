@@ -46,7 +46,7 @@ public class ToAddRisk extends HttpServlet {
 		request.setAttribute("pid", pid);
 		request.setAttribute("typelist", typelist);
 		String success_url = "addriskofsubmitter.jsp";
-		request.getRequestDispatcher(success_url).forward(request, response);
+		request.getRequestDispatcher("/jsp/"+success_url).forward(request, response);
 	}
 
 	/**

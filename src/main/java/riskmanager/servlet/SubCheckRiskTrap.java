@@ -36,7 +36,7 @@ public class SubCheckRiskTrap extends HttpServlet {
 		String success_url="risktrap.jsp";
 		request.setAttribute("username", CheckAccount.username);
 		request.setAttribute("tracelist", tracelist);
-		request.getRequestDispatcher(success_url).forward(request, response);
+		request.getRequestDispatcher("/jsp/"+success_url).forward(request, response);
 	}
 
 	/**

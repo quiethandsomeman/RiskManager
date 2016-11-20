@@ -47,7 +47,7 @@ public class AddRisk extends HttpServlet {
 		subdao.SubmitRisk(target);
 		request.setAttribute("pname", pname);
 		request.setAttribute("pdescription", pdescription);
-		request.getRequestDispatcher(success_url).forward(request, response);
+		request.getRequestDispatcher("/jsp/"+success_url).forward(request, response);
 	}
 
 	/**

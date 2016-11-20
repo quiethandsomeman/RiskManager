@@ -58,7 +58,7 @@ public class SubCheckProject extends HttpServlet {
 		request.setAttribute("pid", pid);
 		request.setAttribute("risklist", risklist);
 		//System.out.println("********* begin forward");
-		request.getRequestDispatcher(success_url).forward(request, response);
+		request.getRequestDispatcher("/jsp/"+success_url).forward(request, response);
 	}
 
 	/**
