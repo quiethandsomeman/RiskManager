@@ -25,5 +25,6 @@ public class Test {
 		
 		TraceInfo traceinfo=new TraceInfo(2,"yes","This is a remark","tracer");
 		System.out.println(new TracerDAO().traceRisk(traceinfo));
+		
 	}
 }
