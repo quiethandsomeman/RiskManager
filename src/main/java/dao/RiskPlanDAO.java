@@ -47,9 +47,9 @@ public class RiskPlanDAO {
 		ArrayList<RiskPlan> list = new ArrayList<RiskPlan>();
 		try {
 			while (rs.next()) {
-				String name=rs.getString(2);
+				String name=rs.getString(1);
 				System.out.println(name);
-				String description=rs.getString(3);
+				String description=rs.getString(2);
 				System.out.println(description);
 				info = new RiskPlan();
 				info.setName(name);
