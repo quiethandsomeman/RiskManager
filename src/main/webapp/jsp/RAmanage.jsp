@@ -1,10 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"
     import="java.util.*"
     import="model.RiskType"
     %>
      <%! String username="user name"; %>
      <%	username=(String)request.getAttribute("username"); %>
+     <%!ArrayList<RiskType> typelist=new ArrayList<RiskType>(); %>
      <%	System.out.println("*********"+username); %>
      
       <%-- <%  int [] rec=new int[10];
@@ -22,6 +23,7 @@
 	String RAdescription = "RA description";%>
 	<% 
 	RAname=(String)request.getAttribute("RAname");
+	typelist=(ArrayList<RiskType>)request.getAttribute("typelist");
 	%>
 <%! int listnum = 10; %>
 <%! String listitemname = "name"; 
@@ -30,6 +32,7 @@
 	String recognized="5";
 	String problems="10";
 	%>
+	<%listnum=typelist.size();%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -102,9 +105,10 @@
 		<font size=4 >
 			<%=RAname %>
 		</font>
-		<form action="ShowRA">
+		<form action="addRAItem">
 		<p class="button_home">
 			<input name="username" type="hidden" value=<%= username %>>
+			<input name="RAName" type="hidden" value=<%= RAname %>>
 			<input type="submit" name="Add" value="Add Risk" style="overflow:visible;padding:0;border:0;background-color:transparent;color:blue;" />
 		</p>
 		</form>
@@ -119,7 +123,10 @@
 				<th><p>problem(times)</p></th>
 				<th><p>operation</p></th>
 			</tr>
-				<%for(int i=listnum;i>0;i--){ %>
+				<%for(int i=0;i<listnum;i++){ 
+				listitemname=typelist.get(i).getTypename();
+				recognized=""+typelist.get(i).getIdentified();
+				problems=""+typelist.get(i).getWorsen(); %>
 					<tr>
 						<td ><p><%=listitemname %></p></td>
 						<td ><p><%=start %></p></td>
@@ -127,9 +134,10 @@
 						<td ><p><%=recognized %></p></td>
 						<td ><p><%=problems %></p></td>
 						<td>
-						<form action="ManageRA" onsubmit="return firm(this);">
+						<form action="DeleteItem" onsubmit="return firm(this);">
 							<input name="username" type="hidden" value=<%= username %>>
 							<input name="RAname" type="hidden" value=<%=RAname %>>
+							<input name="typename" type="hidden" value=<%=listitemname %>>
 							<input type="submit" name="delete" value="delete">
 						</form>
 					</tr>

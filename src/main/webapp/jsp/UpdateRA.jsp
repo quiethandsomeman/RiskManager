@@ -2,11 +2,10 @@
     pageEncoding="UTF-8"
     import="java.util.*" 
     import="model.RiskType"%>
-    <%! String username="user name"; %>
-    <%username=(String)request.getAttribute("username"); %>
-<%! String RAname="RA name"; 
-	String RAdescription = "RA description";
-	%>
+    <%! String username="user name";
+    	String RAName="RAname";%>
+    <%username=(String)request.getAttribute("username"); 
+    	RAName=(String)request.getAttribute("RAname");%>
 <%! int listnum = 10; %>
 <%! String listitemname = "nababababaaabame"; 
 	String recognized="4";
@@ -19,7 +18,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Add RA Item</title>
+<title>Update RA</title>
 <script type="text/javascript" language="javascript">
 	function firm(form){
 		var temp = "";
@@ -101,6 +100,12 @@
 				<td><input type="button" name="sort" value="sort"/></td>
 			</tr>
 		</table>
+		<form action="UpdateRA">
+			<input type="hidden" name="username" value=<%= username %>>
+			<input type="hidden" id="tempString" name="tempString" value="666">
+			<input type="hidden" name="RAname" value=<%=RAName %> >
+			<input class="submit" type="submit" value="addNewRisk" name="update">
+		</form>
 	</div>
 	<div class="listtitle" style="text-align:center">
 		<font size=4>
@@ -116,35 +121,17 @@
 				<th><p>choose or not</p></th>
 			</tr>
 				<%for(int i=0;i<listnum;i++){ 
-					listitemname=typelist.get(i).getTypename();
+				listitemname=typelist.get(i).getTypename();
 					recognized=""+typelist.get(i).getIdentified();
-					problems=""+typelist.get(i).getWorsen();
-				%>
+					problems=""+typelist.get(i).getWorsen();%>
 					<tr>
 						<td><p><%=listitemname %></p></td>
 						<td ><p><%=recognized %></p></td>
 						<td ><p><%=problems %></p></td>
-						<td><input type="checkbox" name="checkbox" value=<%=listitemname+";"+recognized+";"+problems%>></td>
+						<td><input type="checkbox" name=<%=listitemname %>/></td>
 					</tr>
 				<%} %>
 			</table>
-	</div>
-	<div class=listtitle>
-	<table>
-		<tr>
-			<td> 
-			<form action="ManageRA" onsubmit="return firm(this);">
-			<input type="hidden">RAName:
-			<input type="hidden" name="username" value=<%= username %>>
-			<input type="hidden" id="tempString" name="tempString" value="666">
-			<input type="text" name="RAname" value="input your RAname" >
-			<textarea rows="3" cols="60" name="RAdes" ></textarea>
-			<input type="submit" name="submit" value="Add">
-			</form>
-			</td>
-			
-		</tr>
-	</table>
 	</div>
 </body>
 </html>

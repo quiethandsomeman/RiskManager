@@ -88,6 +88,18 @@
 		<description></description>
 		<servlet-class>riskmanager.servlet.UpdateRA</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>DeleteItem</servlet-name>
+		<display-name>DeleteItem</display-name>
+		<description></description>
+		<servlet-class>riskmanager.servlet.DeleteItem</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AddRiskItem</servlet-name>
+		<display-name>AddRiskItem</display-name>
+		<description></description>
+		<servlet-class>riskmanager.servlet.AddRiskItem</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>CheckAccount</servlet-name>
 		<url-pattern>/jsp/CheckAccount</url-pattern>
@@ -138,7 +150,15 @@
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>UpdateRA</servlet-name>
-		<url-pattern>/UpdateRA</url-pattern>
+		<url-pattern>/jsp/UpdateRA</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DeleteItem</servlet-name>
+		<url-pattern>/jsp/DeleteItem</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AddRiskItem</servlet-name>
+		<url-pattern>/jsp/AddRiskItem</url-pattern>
 	</servlet-mapping>
 
 	<welcome-file-list>
