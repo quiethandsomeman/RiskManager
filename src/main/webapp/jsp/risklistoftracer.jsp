@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"
+    import="java.util.*" 
+    import="model.RiskInfo"
+    %>
 <%! String username="user name"; %>
 <%	username=(String)request.getAttribute("username");  %>
 <%! String projectname="project name"; 
@@ -7,7 +10,10 @@
 	%>
 <%	projectname=(String)request.getAttribute("pname"); 
 	projectdescription = (String)request.getAttribute("pdescription");%>
-<%! int listnum = 2; %>
+<%! ArrayList<RiskInfo> risklist; %>
+<%	risklist = (ArrayList<RiskInfo>)request.getAttribute("risklist"); %>
+<%! int listnum = 0; %>
+<%	listnum = risklist.size(); %>
 <%! String listitemtype = "type"; 
 	String listitemdes = "balbalbalbalbalblablablabalball";
 	String listitempossibility = "high";
@@ -68,46 +74,39 @@
 		</table>
 	</div>
 	<div class="list">
-		<% for(int i=listnum;i>0;i--){ %>
-		<div class=projectlistitem>
-				<table>
-					<tr>
-						<td><p><%=listitemtype %></p></td>
-						<td>
-							<form action="SubCheckRiskTrap">
-								<input type="hidden" name="riskid" value=<%=listitemid %>>
-								<input type="submit" value="Check Trap">
-							</form>
-						</td>
-					</tr>
-					<tr>
-						<td><p>is occured ?</p></td>
-						<td>
-							<form action="RiskStateChange">
-								<%if(isoccured){ %>
-								<input type="radio" name=<%=listitemid %> value="isoccured" checked>occured 
-								<input type="radio" name=<%=listitemid %> value="notoccured">not yet
-								<%}else{ %>
-								<input type="radio" name=<%=listitemid %> value="isoccured">occured 
-								<input type="radio" name=<%=listitemid %> value="notoccured" checked>not yet
-								<%} %>
-								<input type="hidden" name="radioname" value=<%=listitemid %>>
-								<input type="submit" name="occur" value="save">
-							</form>
-						</td>
-					</tr>
-					<tr>
-						<td><p>Description: <%=listitemdes %></p></td>
-					</tr>
-					<tr>
-						<td><p>Possibility: <%=listitempossibility %></p></td>
-						<td><p>Impact: <%=listitemimpact %></p></td>
-					</tr>
-					<tr>
-						<td><p>Threshold: <%=listitemthreshold %></p></td>
-					</tr>
-				</table>
-			</div>
+		<% for(int i=0;i<listnum;i++){ 
+			RiskInfo temp = risklist.get(i);
+			listitemtype = temp.getType();
+			listitemid = String.valueOf(temp.getRiskId());
+			listitemdes = temp.getDescription();
+			listitempossibility = String.valueOf(temp.getPossibility());
+			listitemimpact = String.valueOf(temp.getImpact());
+			listitemthreshold = temp.getTrigger();
+			%>
+			<table>
+				<tr>
+					<td><p><%=listitemtype %></p></td>
+					<td>
+						<form action="SubCheckRiskTrap">
+							<input type="hidden" name="riskid" value=<%=listitemid %>>								<input type="submit" value="Check Trap">
+						</form>
+						<form action="ToRiskStateChange">
+							<input type="hidden" name="riskid" value=<%=listitemid %>>
+							<input type="submit" name="occur" value=" Trace ">
+						</form>
+					</td>
+				</tr>
+				<tr>
+					<td><p>Description: <%=listitemdes %></p></td>
+				</tr>
+				<tr>
+					<td><p>Possibility: <%=listitempossibility %></p></td>
+					<td><p>Impact: <%=listitemimpact %></p></td>
+				</tr>
+				<tr>
+					<td><p>Threshold: <%=listitemthreshold %></p></td>
+				</tr>
+			</table>
 		<% } %>
 	</div>
 </body>

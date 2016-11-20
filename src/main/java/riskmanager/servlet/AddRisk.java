@@ -6,12 +6,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.RiskTypeDAO;
+import dao.SubmitterDAO;
+import model.RiskInfo;
+
 /**
  * Servlet implementation class AddRisk
  */
 public class AddRisk extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
+	SubmitterDAO subdao = new SubmitterDAO();
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -32,9 +37,16 @@ public class AddRisk extends HttpServlet {
 		String threshold=request.getParameter("rthreshold");
 		String username=request.getParameter("rsubmitter");
 		String pname=request.getParameter("pname");
+		String pdescription=request.getParameter("pdescription");
+		String pid=request.getParameter("pid");
 		//System.out.println(type+"+"+description);
 		String success_url = "SubCheckProject";
 		//System.out.println(username+"+"+pname);
+		RiskInfo target = new RiskInfo(Integer.parseInt(pid),type,description,
+				Integer.parseInt(possibility),Integer.parseInt(impact),threshold,username);
+		subdao.SubmitRisk(target);
+		request.setAttribute("pname", pname);
+		request.setAttribute("pdescription", pdescription);
 		request.getRequestDispatcher(success_url).forward(request, response);
 	}
 

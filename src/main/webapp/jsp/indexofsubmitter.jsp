@@ -1,8 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" 
+    import="java.util.*" 
+    import="model.ProjectInfo"%>
+    
 <%! String username= "username"; %>
 <%	username=(String)request.getAttribute("username"); %>
-<%! int projectnum = 2; %>
+<%! int projectnum = 0; %>
+<%! ArrayList<ProjectInfo> prolist; %>
+<%	prolist = (ArrayList<ProjectInfo>)request.getAttribute("prolist"); 
+	projectnum = prolist.size();
+	%>
 <%! String listitemname = "name"; 
 	String listitemdes = "balbalbalbalbalblablablabalball";
 	%>
@@ -41,15 +48,20 @@
 		<p> All Project </p>
 	</div>
 	<div class="list">
-		<%for(int i=projectnum;i>0;i--){ %>
-			<div class=projectlistitem>
-				<table>
+		<%for(int i=0;i<projectnum;i++){ 
+			ProjectInfo temp = prolist.get(i);
+			listitemname = temp.getName();
+			listitemdes = temp.getDescription();
+			%>
+			<table>
 					<tr>
 						<td><p><%=listitemname %></p></td>
 						<td>
 						<form action="SubCheckProject">
 							<input name="username" type="hidden" value=<%= username %>>
 							<input name="pname" type="hidden" value=<%=listitemname %>>
+							<input name="pid" type="hidden" value=<%=temp.getId() %>> 
+							<input name="pdescription" type="hidden" value=<%=listitemdes %>>
 							<input name="checkproject" type="submit" value="Check" onClick="location.href:'SubCheckProject'">
 						</form>
 						</td>
@@ -57,8 +69,7 @@
 					<tr>
 						<td><p>Description: <%=listitemdes %></p></td>
 					</tr>
-				</table>
-			</div>
+				</table>		
 		<%} %>
 	</div>
 	

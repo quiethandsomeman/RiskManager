@@ -6,21 +6,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.TracerDAO;
-import model.TraceInfo;
-
 /**
- * Servlet implementation class RiskStateChange
+ * Servlet implementation class ToRiskStateChange
  */
-public class RiskStateChange extends HttpServlet {
+public class ToRiskStateChange extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
-	TracerDAO dao = new TracerDAO();
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public RiskStateChange() {
+    public ToRiskStateChange() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,13 +25,12 @@ public class RiskStateChange extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.setCharacterEncoding("UTF-8");
-		String riskid= request.getParameter("riskid");
-		String state = request.getParameter("state");
-		String remark = request.getParameter("remark");
-		int suc = dao.traceRisk(new TraceInfo(Integer.parseInt(riskid),state,remark,CheckAccount.username));
-		//System.out.println(state);
-		String success_url = "SubCheckProject";
+		String username = CheckAccount.username;
+		String riskid = request.getParameter("riskid");
+		request.setAttribute("username", username);
+		request.setAttribute("riskid", riskid);
+		String success_url="tracerisk.jsp";
+		request.getRequestDispatcher(success_url).forward(request, response);
 	}
 
 	/**

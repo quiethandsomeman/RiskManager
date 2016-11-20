@@ -1,13 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"
+    import="java.util.*" 
+    import="model.RiskInfo"%>
 <%! String username="user name"; %>
+<%	//System.out.println("*********readusername"); %>
 <%	username=(String)request.getAttribute("username"); %>
 <%! String projectname="project name"; 
 	String projectdescription = "project description";
-	%>
+	String projectid = "id";%>
+	<%	//System.out.println("*********read pname pid pdes"); %>
 <%	projectname=(String)request.getAttribute("pname"); 
-	projectdescription = (String)request.getAttribute("pdescription");%>
-<%! int listnum = 2; %>
+	projectdescription = (String)request.getAttribute("pdescription");
+	projectid=(String)request.getAttribute("pid");
+	%>
+<%! ArrayList<RiskInfo> risklist; %>
+<%	//System.out.println("*********readrisklist"); %>
+<%	int listnum=0; %>
+<%	risklist = (ArrayList<RiskInfo>)request.getAttribute("risklist"); 
+	listnum = risklist.size();%>
+<%	//System.out.println("*********"+listnum); %>
 <%! String listitemtype = "type"; 
 	String listitemdes = "balbalbalbalbalblablablabalball";
 	String listitempossibility = "high";
@@ -66,6 +77,8 @@
 				<td>
 					<form action="ToAddRisk">
 						<input name="pname" type="hidden" value=<%=projectname %>>
+						<input name="pid" type="hidden" value=<%=projectid %>>
+						<input name="pdescription" type="hidden" value=<%=projectdescription %>> 
 						<input name="username" type="hidden" value=<%=username %>>
 						<input name="addrisk" type="submit" value="Add Risk">
 					</form>
@@ -74,30 +87,36 @@
 		</table>
 	</div>
 	<div class="list">
-		<%for(int i=listnum;i>0;i--){ %>
-			<div class=listitem>
-				<table>
-					<tr>
-						<td><p><%=listitemtype %></p></td>
-						<td>
-							<form action="SubCheckRiskTrap">
-								<input type="hidden" name="riskid" value=<%=listitemid %>>
-								<input type="submit" value="Check Trap">
-							</form>
-						</td>
-					</tr>
-					<tr>
-						<td><p>Description: <%=listitemdes %></p></td>
-					</tr>
-					<tr>
-						<td><p>Possibility: <%=listitempossibility %></p></td>
-						<td><p>Impact: <%=listitemimpact %></p></td>
-					</tr>
-					<tr>
-						<td><p>Threshold: <%=listitemthreshold %></p></td>
-					</tr>
-				</table>
-			</div>
+		<%for(int i=0;i<listnum;i++){ 
+			RiskInfo temp = risklist.get(i);
+			listitemtype = temp.getType();
+			listitemid = String.valueOf(temp.getRiskId());
+			listitemdes = temp.getDescription();
+			listitempossibility = String.valueOf(temp.getPossibility());
+			listitemimpact = String.valueOf(temp.getImpact());
+			listitemthreshold = temp.getTrigger();
+		%>
+			<table>
+				<tr>
+					<td><p><%=listitemtype %></p></td>
+					<td>
+						<form action="SubCheckRiskTrap">
+							<input type="hidden" name="riskid" value=<%=listitemid %>>
+							<input type="submit" value="Check Trap">
+						</form>
+					</td>
+				</tr>
+				<tr>
+					<td><p>Description: <%=listitemdes %></p></td>
+				</tr>
+				<tr>
+					<td><p>Possibility: <%=listitempossibility %></p></td>
+					<td><p>Impact: <%=listitemimpact %></p></td>
+				</tr>
+				<tr>
+					<td><p>Threshold: <%=listitemthreshold %></p></td>
+				</tr>
+			</table>
 		<%} %>
 	</div>
 </body>
