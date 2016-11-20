@@ -42,7 +42,7 @@ public class CheckAccount extends HttpServlet {
 		
 		if(result==0||result==1||result==2){
 			System.out.println("success");
-			String success_url = "indexofsubmitter.jsp";
+			String success_url = "/riskmanager-0.0.1-SNAPSHOT/indexofsubmitter.jsp";
 			
 			if(result==0){
 				role="sub";
