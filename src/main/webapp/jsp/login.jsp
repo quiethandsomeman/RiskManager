@@ -30,7 +30,7 @@
 			</td>
 			<td>
 				<div id="login-item">
-				<form action="CheckAccount" method="post">
+				<form action="/jsp/CheckAccount" method="post">
 				<input type="text" name="name" value="user id or e-mail address:)">
 				<br>
 				<input type="password" name="password">
