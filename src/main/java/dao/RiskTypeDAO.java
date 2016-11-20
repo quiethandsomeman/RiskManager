@@ -24,4 +24,8 @@ public class RiskTypeDAO {
 		list.add(new RiskType("其他"));
 		return list;
 	}
+	
+	public ArrayList<RiskType> getAllTypeByTime(){
+		
+	}
 }

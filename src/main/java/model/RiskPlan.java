@@ -4,11 +4,21 @@ public class RiskPlan {
 	private int planId;
 	private String name;
 	private String description;
+	private String username;
 	
-	public RiskPlan(String name, String description) {
+	public RiskPlan(String name, String description, String username) {
 		super();
 		this.name = name;
 		this.description = description;
+		this.username = username;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public int getPlanId() {
