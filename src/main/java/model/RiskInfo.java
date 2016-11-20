@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 
 public class RiskInfo {
 
+	private int riskId;
 	private int projectId;
 	private String type;
 	private String description;
@@ -34,6 +35,14 @@ public class RiskInfo {
 		// TODO Auto-generated constructor stub
 	}
 
+	public int getRiskId() {
+		return riskId;
+	}
+
+	public void setRiskId(int riskId) {
+		this.riskId = riskId;
+	}
+	
 	public int getProjectId() {
 		return projectId;
 	}
