@@ -2,6 +2,7 @@ package riskmanager.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -9,6 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.serializer.SerializerFeature;
+
+import dao.RiskTypeDAO;
+import model.RiskDAOcoll;
+import model.RiskType;
 
 /**
  * Servlet implementation class identityrisk
@@ -33,11 +39,21 @@ public class identityrisk extends HttpServlet {
 		String finish=request.getParameter("date2");
 		//System.out.println(start);
 		//System.out.println(finish);
-		int[] ai=new int[10];
+		RiskTypeDAO rtd=new RiskTypeDAO();
+		ArrayList<RiskType> art=rtd.getAllRiskStateByTime(start, finish);
+		int[] num=new int[10];
 		for(int i=0;i<10;i++){
-			ai[i]=i;
+			num[i]=art.get(i).getIdentified();
 		}
-		String str=JSON.toJSONString(ai);
+		String[] name=new String[10];
+		for(int i=0;i<10;i++){
+			name[i]=art.get(i).getTypename();
+		}
+		RiskDAOcoll rco=new RiskDAOcoll();
+		rco.setA(num);
+		rco.setB(name);
+		//System.out.println(name[1]);
+		String str=JSON.toJSONString(rco,SerializerFeature.BrowserCompatible);
         PrintWriter out = response.getWriter();
         out.write(str);
 	}

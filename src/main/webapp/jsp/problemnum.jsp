@@ -62,7 +62,9 @@
                     "date2":enddate
                 },
                 function (data) {
-                    var set=$.parseJSON(data);
+                	var col=$.parseJSON(data);
+                    var setname=col.b;
+                    var setnum=col.a;
                     /* alert(set[0]); */
                     var myChart = echarts.init(document.getElementById('histogramChart'));
                     var option = {
@@ -74,13 +76,17 @@
                                 data:['问题数目']
                             },
                             xAxis: {
-                                data: ["x1","x2","x3","x4","x5","x6","x7","x8","x9","x10"]
+                            	axisLabel:{
+                                    interval:0,  
+                                    rotate:-45   
+                                  },  
+                                data: [setname[0],setname[1],setname[2],setname[3],setname[4],setname[5],setname[6],setname[7],setname[8],setname[9]]
                             },
                             yAxis: {},
                             series: [{
                                 name: '问题数目',
                                 type: 'bar',
-                                data: set
+                                data: setnum
                             }]
                         };
                     /* var thearray=[["x1",set[0]],["x2",set[1]],
@@ -101,7 +107,7 @@
                     	    legend: {
                     	        orient: 'vertical',
                     	        left: 'left',
-                    	        data: ['x1','x2','x3','x4','x5','x6','x7','x8','x9','x10']
+                    	        data: setname
                     	    },
                     	    series : [
                     	        {
@@ -110,16 +116,16 @@
                     	            radius : '55%',
                     	            center: ['50%', '60%'],
                     	            data:[
-                    	                {value:set[0], name:'x1'},
-                    	                {value:set[1], name:'x2'},
-                    	                {value:set[2], name:'x3'},
-                    	                {value:set[3], name:'x4'},
-                    	                {value:set[4], name:'x5'},
-                    	                {value:set[5], name:'x6'},
-                    	                {value:set[6], name:'x7'},
-                    	                {value:set[7], name:'x8'},
-                    	                {value:set[8], name:'x9'},
-                    	                {value:set[9], name:'x10'}
+                    	                {value:setnum[0], name:setname[0]},
+                    	                {value:setnum[1], name:setname[1]},
+                    	                {value:setnum[2], name:setname[2]},
+                    	                {value:setnum[3], name:setname[3]},
+                    	                {value:setnum[4], name:setname[4]},
+                    	                {value:setnum[5], name:setname[5]},
+                    	                {value:setnum[6], name:setname[6]},
+                    	                {value:setnum[7], name:setname[7]},
+                    	                {value:setnum[8], name:setname[8]},
+                    	                {value:setnum[9], name:setname[9]}
                     	            ], 
                     	            /* data : thearray, */
                     	            itemStyle: {
