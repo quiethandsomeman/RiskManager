@@ -107,6 +107,16 @@ public class DbUtil {
 		}
 		return rs;
 	}
+	
+	public static int executeInsert(String sql) {
+		try {
+			conn.prepareStatement(sql).executeUpdate();
+			return 1;
+		} catch (SQLException e) {
+            e.printStackTrace();
+            return -1;
+		}
+	}
 
 	public static void close(ResultSet rs, Statement stmt, Connection conn) {
 		if (rs != null) {

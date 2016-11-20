@@ -1,11 +1,7 @@
 package dao;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-
 import database.DbUtil;
-import model.ProjectInfo;
+import model.RiskInfo;
 
 public class SubmitterDAO {
 	
@@ -16,11 +12,19 @@ public class SubmitterDAO {
 	/**
 	 * @see dao.SightDAO#findAll()
 	 */
-	public int SubmitRisk() {
+	public int SubmitRisk(RiskInfo riskinfo) {
 		// TODO Auto-generated method stub
-		String sql = "select * from project";
+		String sql = "insert into risk_submit(projectid,type,description,possibility,impact,threshold,submitter,date) values('"+riskinfo.getProjectId()+"','"+
+		riskinfo.getType()+"','"+
+		riskinfo.getDescription()+"','"+
+		riskinfo.getPossibility()+"','"+
+		riskinfo.getImpact()+"','"+
+		riskinfo.getTrigger()+"','"+
+		riskinfo.getSubmitter()+"','"+
+		riskinfo.getDate()+"')";
 		System.out.println(sql);
-		ResultSet rs = DbUtil.getResultSet(sql);
+		return DbUtil.executeInsert(sql);
+		/*
 		ProjectInfo info= null;  
         ArrayList<ProjectInfo> list = new ArrayList<ProjectInfo>();
 		try {
@@ -43,5 +47,6 @@ public class SubmitterDAO {
 			e.printStackTrace();
 			return null;//数据库 error
 		}
+		*/
 	}
 }

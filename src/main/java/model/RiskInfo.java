@@ -4,6 +4,8 @@ import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 
 public class RiskInfo {
+	
+	private int riskid;
 	private int projectId;
 	private int type;
 	private String description;
