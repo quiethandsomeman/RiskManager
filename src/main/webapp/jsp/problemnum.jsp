@@ -5,13 +5,40 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>变成问题的风险</title>
+<style type="text/css">
+	div.welcome{
+		margin-left:0.5cm;
+		height:50px;
+		background-color:gray;
+		color:white;
+			
+	}
+	font.welcometext{
+		margin-top:0.3cm;
+		margin-left:0.5cm;
+		float:left;
+	}
+</style>
+<script type="text/javascript" language="javascript" src="My97DatePicker/WdatePicker.js"></script>
 </head>
 <body>
     
+    <div class="welcome">
+		<font size=5 class="welcometext" >
+			RA MANAGER SYSTEM
+		</font>
+	</div>
     <form>  
-        start time:  <input type=date id="datetime1" name="datetime1" />
-        end time:  <input type=date id="datetime2" name="datetime2" />
-        <input type=button value="search" onclick="lookup()"></input>
+        <div>
+			<tr>
+				<td><p>Start Time : </p></td>
+				<td><input name="datetime1" id="datetime1" style="width: 100px;" onFocus="WdatePicker({readOnly:true,dateFmt:'yyyy-MM-dd'})"/></td>
+				<td><p>End Time :</p></td>
+				<td><input name="datetime2" id="datetime2" style="width: 100px;" onFocus="WdatePicker({readOnly:true,dateFmt:'yyyy-MM-dd'})"/></td>
+				<td><input type=button value="search" onclick="lookup()"></input></td>
+			</tr>
+	    </div>
+        
     </form>  
     
      <div style="width: 600px;min-height: 100px;margin:0 auto"></div>
