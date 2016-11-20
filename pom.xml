@@ -4,6 +4,7 @@
 	<groupId>com.qhm.riskmanager</groupId>
 	<artifactId>riskmanager</artifactId>
 	<packaging>war</packaging>
+	<version>0.0.1-SNAPSHOT</version>
 	<name>riskmanager Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 
@@ -104,7 +105,7 @@
 
 					<password>password</password>
 
-					<path>/riskmanager</path>
+					<path>/</path>
 
 				</configuration>
 
