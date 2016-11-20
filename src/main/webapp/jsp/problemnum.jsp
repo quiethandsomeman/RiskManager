@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>被识别的风险</title>
+<title>变成问题的风险</title>
 </head>
 <body>
     
@@ -29,7 +29,7 @@
         /* alert(startdate+"|"+enddate); */
 
         $.post(
-                "./test",
+                "../beproblemrisk",
                 {
                     "date1":startdate,
                     "date2":enddate
@@ -51,7 +51,7 @@
                             },
                             yAxis: {},
                             series: [{
-                                name: 'number',
+                                name: '问题数目',
                                 type: 'bar',
                                 data: set
                             }]

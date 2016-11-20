@@ -29,7 +29,7 @@
         /* alert(startdate+"|"+enddate); */
 
         $.post(
-                "./test",
+                "../identityrisk",
                 {
                     "date1":startdate,
                     "date2":enddate
@@ -51,7 +51,7 @@
                             },
                             yAxis: {},
                             series: [{
-                                name: 'number',
+                                name: '风险数目',
                                 type: 'bar',
                                 data: set
                             }]
