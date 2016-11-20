@@ -93,7 +93,7 @@
 						<td><input name="pdescription" type="hidden" value=<%=pdescription %>>
 						<input name="pid" type="hidden" value=<%=pid %>></td>
 						<td><input name="pname" type="hidden" value=<%=pname %>></td>
-						<td><input type="submit" name="saverisk" value="Save"></td>
+						<td width="20%"><input type="submit" name="saverisk" value="Save"></td>
 					</tr>
 				</table>
 		</form>		

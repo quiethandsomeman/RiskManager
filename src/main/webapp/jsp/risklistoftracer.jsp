@@ -5,11 +5,13 @@
     %>
 <%! String username="user name"; %>
 <%	username=(String)request.getAttribute("username");  %>
-<%! String projectname="project name"; 
-	String projectdescription = "project description";
+<%! String pname="project name"; 
+	String pdescription = "project description";
+	String pid="pid";
 	%>
-<%	projectname=(String)request.getAttribute("pname"); 
-	projectdescription = (String)request.getAttribute("pdescription");%>
+<%	pname=(String)request.getAttribute("pname"); 
+	pdescription = (String)request.getAttribute("pdescription");
+	pid=(String) request.getAttribute("pid");%>
 <%! ArrayList<RiskInfo> risklist; %>
 <%	risklist = (ArrayList<RiskInfo>)request.getAttribute("risklist"); %>
 <%! int listnum = 0; %>
@@ -39,16 +41,29 @@
 			float:right;
 		}
 		div.listtitle{
-			margin-top:0.5cm;
+			margin-top:0.25cm;
 			margin-left:0.5cm;
+			width:15cm;
+			height:1cm;
+			border:solid 1px #add9c0;
+			padding-left:0.5cm;	
+			padding-bottom:0.5cm;	
 		}
-		div.list{
+		table.list{
 			margin-top:0.5cm;
 			margin-left:0.5cm;
+			width:15cm;
+			height:5cm;
+			border:solid 1px #add9c0;
+			padding-top:0.25cm;
+			padding-left:1cm;
+			padding-bottom:0.25cm;
+			
 		}
 		div.project-description{
 			margin-top:0.5cm;
 			margin-left:0.5cm;
+			
 		}
 	</style>
 </head>
@@ -59,21 +74,21 @@
 	<div class="project-description">
 		<table>
 			<tr>
-				<td><p><%=projectname %></p></td>
+				<td><p><%=pname %></p></td>
 			</tr>
 			<tr>
-				<td><p>Description: <%=projectdescription %></p></td>
+				<td><p>Description: <%=pdescription %></p></td>
 			</tr>
 		</table>
 	</div>
 	<div class="listtitle">
 		<table>
 			<tr>
-				<td width="60%"><p> Risk List </p></td>
+				<td><p> Risk List </p></td>
 			</tr>
 		</table>
 	</div>
-	<div class="list">
+	<div >
 		<% for(int i=0;i<listnum;i++){ 
 			RiskInfo temp = risklist.get(i);
 			listitemtype = temp.getType();
@@ -83,28 +98,31 @@
 			listitemimpact = String.valueOf(temp.getImpact());
 			listitemthreshold = temp.getTrigger();
 			%>
-			<table>
+			<table class="list">
 				<tr>
 					<td><p><%=listitemtype %></p></td>
-					<td>
+					<td nowrap="nowrap">
 						<form action="SubCheckRiskTrap" method="post">
 							<input type="hidden" name="riskid" value=<%=listitemid %>>								<input type="submit" value="Check Trap">
 						</form>
 						<form action="ToRiskStateChange">
 							<input type="hidden" name="riskid" value=<%=listitemid %>>
+							<input type="hidden" name="pid" value=<%=pid %>>
+							<input type="hidden" name="pname" value=<%=pname %>>
+							<input type="hidden" name="pdescription" value=<%=pdescription %>> 
 							<input type="submit" name="occur" value=" Trace ">
 						</form>
 					</td>
 				</tr>
 				<tr>
-					<td><p>Description: <%=listitemdes %></p></td>
+					<td colspan="2"><p>Description: <%=listitemdes %></p></td>
 				</tr>
 				<tr>
 					<td><p>Possibility: <%=listitempossibility %></p></td>
 					<td><p>Impact: <%=listitemimpact %></p></td>
 				</tr>
 				<tr>
-					<td><p>Threshold: <%=listitemthreshold %></p></td>
+					<td colspan="2"><p>Threshold: <%=listitemthreshold %></p></td>
 				</tr>
 			</table>
 		<% } %>

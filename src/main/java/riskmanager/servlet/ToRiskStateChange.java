@@ -30,8 +30,14 @@ public class ToRiskStateChange extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		String username = CheckAccount.username;
 		String riskid = request.getParameter("riskid");
-		request.setAttribute("username", username);
+		String pid=request.getParameter("pid");
+		String pname=request.getParameter("pname");
+		String pdescription = request.getParameter("pdescription");
+		request.setAttribute("pid", pid);
+		request.setAttribute("pname", pname);
+		request.setAttribute("pdescription", pdescription);
 		request.setAttribute("riskid", riskid);
+		request.setAttribute("username", username);
 		String success_url="tracerisk.jsp";
 		request.getRequestDispatcher("/jsp/"+success_url).forward(request, response);
 	}

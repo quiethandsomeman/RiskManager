@@ -2,9 +2,15 @@
     pageEncoding="UTF-8"%>
 <%! String username="user name";
 	String riskid="id";
+	String pid="id";
+	String pname="pname";
+	String pdescription="pdescription"; 
 	%>
 <%	username=(String)request.getAttribute("username");  
-	riskid=(String)request.getAttribute("riskid");%>
+	riskid=(String)request.getAttribute("riskid");
+	pid=(String)request.getAttribute("pid");
+	pname=(String)request.getAttribute("pname");
+	pdescription=(String)request.getAttribute("pdescription");%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -32,7 +38,7 @@
 		<p class="welcometext">Welcome, <%=username %></p>
 	</div>
 	<div class="content">
-		<form action="RiskStateChange">
+		<form action="RiskStateChange" method="post">
 			<p>description</p>
 			<textarea rows="3" cols="40" name="remark">please input your remark of this trap :)</textarea>
 			<br>
@@ -40,6 +46,9 @@
 			<input type="radio" name="state" value="yes" checked>occured 
 			<input type="radio" name="state" value="no">not yet
 			<input type="hidden" name="riskid" value=<%=riskid %>>
+			<input type="hidden" name="pid" value=<%=pid %>>
+			<input type="hidden" name="pname" value=<%=pname %>>
+			<input type="hidden" name="pdescription" value=<%=pdescription %>>
 			<input type="submit" name="save" value="submit" >
 		</form>
 	</div>

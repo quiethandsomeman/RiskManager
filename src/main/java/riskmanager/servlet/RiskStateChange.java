@@ -33,13 +33,22 @@ public class RiskStateChange extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
 		response.setCharacterEncoding("UTF-8");
-		request.setCharacterEncoding("UTF-8");
+		//request.setCharacterEncoding("UTF-8");
 		String riskid= request.getParameter("riskid");
 		String state = request.getParameter("state");
 		String remark = request.getParameter("remark");
+		String pid = request.getParameter("pid");
+		String pname = request.getParameter("pname");
+		String pdescription = request.getParameter("pdescription");
 		int suc = dao.traceRisk(new TraceInfo(Integer.parseInt(riskid),state,remark,CheckAccount.username));
 		//System.out.println(state);
 		//String success_url = "SubCheckProject";
+		/*if(suc==1){
+			request.setAttribute("pid", pid);
+			request.setAttribute("pname", pname);
+			request.setAttribute("pdescription", pdescription);
+			request.getRequestDispatcher("/jsp/"+success_url).forward(request, response);
+		}*/
 	}
 
 	/**

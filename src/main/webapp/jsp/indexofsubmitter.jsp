@@ -38,7 +38,12 @@
 			margin-left:0.5cm;
 		}
 		table.normal{
+			width:15cm;
+			height:3cm;
 			border:solid 1px #add9c0;
+			padding-top:0.25cm;
+			padding-left:1cm;
+			padding-bottom:0.25cm;
 		}
 		
 	</style>
@@ -58,7 +63,7 @@
 			%>
 			<table class="normal">
 					<tr>
-						<td>
+						<td width="30%">
 						<p><%=listitemname %></p>
 						</td>
 						<td>
@@ -74,9 +79,9 @@
 					<tr>
 						<td colspan="2"><p>Description: <%=listitemdes %></p></td>
 					</tr>
-					<br>
-					<br>
-				</table>		
+			</table>
+			<br>
+			<br>		
 		<%} %>
 	</div>
 	

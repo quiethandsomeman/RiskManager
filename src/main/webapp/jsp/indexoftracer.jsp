@@ -30,6 +30,14 @@
 			margin-right:1cm;
 			float:right;
 		}
+		table.normal{
+			width:15cm;
+			height:3cm;
+			border:solid 1px #add9c0;
+			padding-top:0.25cm;
+			padding-left:1cm;
+			padding-bottom:0.25cm;
+		}
 	</style>
 </head>
 <body>
@@ -46,11 +54,11 @@
 			listitemdes = temp.getDescription();
 			%>
 			<div class=projectlistitem>
-				<table>
+				<table class="normal">
 					<tr>
-						<td><p><%=listitemname %></p></td>
+						<td width="30%"><p><%=listitemname %></p></td>
 						<td>
-							<form action="SubCheckProject">
+							<form action="SubCheckProject" method="post">
 								<input name="pname" type="hidden" value=<%=listitemname %>>
 								<input name="pid" type="hidden" value=<%=temp.getId() %>>
 								<input name="pdescription" type="hidden" value=<%=listitemdes %>>
@@ -59,10 +67,12 @@
 						</td>
 					</tr>
 					<tr>
-						<td><p>Description: <%=listitemdes %></p></td>
+						<td colspan="2"><p>Description: <%=listitemdes %></p></td>
 					</tr>
 				</table>
 			</div>
+			<br>
+			<br>
 		<%} %>
 	</div>
 </body>

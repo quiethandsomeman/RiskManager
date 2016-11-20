@@ -43,16 +43,31 @@
 			float:right;
 		}
 		div.listtitle{
-			margin-top:0.5cm;
+			margin-top:0.25cm;
 			margin-left:0.5cm;
+			width:15cm;
+			height:2cm;
+			border:solid 1px #add9c0;
+			padding-top:0.25cm;
+			padding-bottom:0.25cm;
+			padding-left:2cm;
+			
 		}
-		div.list{
-			margin-top:0.5cm;
-			ma
-			div.project-description{
+		table.list{
 			margin-top:0.5cm;
 			margin-left:0.5cm;
-		}rgin-left:0.5cm;
+			width:15cm;
+			height:5cm;
+			border:solid 1px #add9c0;
+			padding-top:0.25cm;
+			padding-left:1cm;
+			padding-bottom:0.25cm;
+			
+		}
+		div.project-description{
+			margin-top:0.5cm;
+			margin-left:0.5cm;
+			
 		}
 	</style>
 </head>
@@ -73,7 +88,7 @@
 	<div class="listtitle">
 		<table>
 			<tr>
-				<td width="60%"><p> Risk List </p></td>
+				<td><p> Risk List </p></td>
 				<td>
 					<form action="ToAddRisk" method="post">
 						<input name="pname" type="hidden" value=<%=projectname %>>
@@ -86,7 +101,7 @@
 			</tr>
 		</table>
 	</div>
-	<div class="list">
+	<div >
 		<%for(int i=0;i<listnum;i++){ 
 			RiskInfo temp = risklist.get(i);
 			listitemtype = temp.getType();
@@ -96,7 +111,7 @@
 			listitemimpact = String.valueOf(temp.getImpact());
 			listitemthreshold = temp.getTrigger();
 		%>
-			<table>
+			<table class="list" >
 				<tr>
 					<td><p><%=listitemtype %></p></td>
 					<td>
@@ -107,14 +122,14 @@
 					</td>
 				</tr>
 				<tr>
-					<td><p>Description: <%=listitemdes %></p></td>
+					<td colspan="2"><p>Description: <%=listitemdes %></p></td>
 				</tr>
 				<tr>
 					<td><p>Possibility: <%=listitempossibility %></p></td>
 					<td><p>Impact: <%=listitemimpact %></p></td>
 				</tr>
 				<tr>
-					<td><p>Threshold: <%=listitemthreshold %></p></td>
+					<td colspan="2"><p>Threshold: <%=listitemthreshold %></p></td>
 				</tr>
 			</table>
 		<%} %>
