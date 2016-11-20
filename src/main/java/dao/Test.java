@@ -34,6 +34,8 @@ public class Test {
 		//RiskPlan riskplan3=new RiskPlan("HDK的RA计划","This is a RA plan.");
 		//System.out.println(new RiskPlanDAO().createRiskPlan(riskplan3));
 		
-		System.out.println(new RiskPlanDAO().getAllPlanByUsername("analyzer").size());
+		//System.out.println(new RiskPlanDAO().getAllPlanByUsername("analyzer").size());
+	
+		System.out.println(new RiskTypeDAO().getAllIdentifiedRiskByTime("1", "2"));
 	}
 }
