@@ -2,9 +2,6 @@ node {
     stage('SCM') {
         git 'https://github.com/quiethandsomeman/RiskManager.git'
     }
-    stage('QA') {
-        sh 'sonar-scanner'
-    }
     stage('build') {
         def mvnHome = tool 'M2J'
         sh "${mvnHome}/bin/mvn -B clean package"
